@@ -15,7 +15,7 @@ import json
 
 # Load data and model
 text_data_path = '../../../datasets/WebVision/'
-model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_5000chunck.model'
+model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_30000chunck.model'
 
 # Create output files
 train_gt_path = '../../../datasets/WebVision/lda_gt/' + 'train' + '_500_chunck30000_th0.txt'
@@ -23,9 +23,6 @@ train_file = open(train_gt_path, "w")
 val_gt_path = '../../../datasets/WebVision/lda_gt/' + 'myval' + '_500_chunck30000_th0.txt'
 val_file = open(val_gt_path, "w")
 
-
-
-splits = ['train','myval']
 
 num_topics = 500
 threads = 12
@@ -114,7 +111,7 @@ def infer_LDA(d):
         # print id + topic_probs
         return d[0] + ',' + str(d[1]) + topic_probs
 
-c = 0
+
 data = []
 sources=['google','flickr']
 former_filename = ' '
@@ -131,10 +128,6 @@ for s in sources:
 
     for i,line in enumerate(data_file):
 
-        c += 1
-        if c > 500:
-            break
-
         filename = line.split(' ')[0]
         idx = int(line.split(' ')[1])
 
@@ -148,7 +141,9 @@ for s in sources:
 
         if d[idx - 1].has_key('description'): caption = caption + d[idx - 1]['description'] + ' '
         if d[idx - 1].has_key('title'): caption = caption + d[idx - 1]['title'] + ' '
-        if d[idx - 1].has_key('tags'): caption = caption + d[idx - 1]['tags'] + ' '
+        if d[idx - 1].has_key('tags'):
+            for tag in d[idx-1]['tags']:
+                caption = caption + tag + ' '
 
         data.append([img_names[i],img_classes[i],caption])
 
