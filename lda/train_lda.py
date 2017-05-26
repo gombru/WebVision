@@ -13,17 +13,17 @@ import numpy as np
 
 whitelist = string.letters  + ' ' # + string.digits
 text_data_path = '../../../datasets/WebVision/'
-model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_5000chunck.model'
+model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_30000chunck.model'
 words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube']
 
 num_topics = 500
 threads = 8
 passes = 1 #Passes over the whole corpus
-chunksize = 5000 #Update the model every 10000 documents
+chunksize = 80000 #Update the model every 10000 documents
 # See https://radimrehurek.com/gensim/wiki.html
 update_every = 1
 
-repetition_threshold = 5
+repetition_threshold = 150
 
 #Initialize Tokenizer
 tokenizer = RegexpTokenizer(r'\w+')
@@ -42,11 +42,9 @@ texts = [] #List of lists of tokens
 former_filename = ' '
 print "Loading data"
 file = open(text_data_path + 'info/train_meta_list_all.txt', "r")
-c=0
+
 for line in file:
-    c += 1
-    if c > 5000:
-        break
+
     filename = line.split(' ')[0]
     idx = int(line.split(' ')[1])
 
@@ -61,7 +59,9 @@ for line in file:
 
     if d[idx-1].has_key('description'): caption = caption + d[idx-1]['description'] + ' '
     if d[idx-1].has_key('title'): caption = caption + d[idx-1]['title'] + ' '
-    if d[idx-1].has_key('tags'): caption = caption + d[idx-1]['tags'] + ' '
+    if d[idx-1].has_key('tags'):
+        for tag in d[idx-1]['tags']:
+            caption = caption + tag + ' '
 
 
     # Replace hashtags with spaces
@@ -72,8 +72,8 @@ for line in file:
             filtered_caption += char
 
     posts_text.append(filtered_caption.decode('utf-8').lower())
-    # print filtered_caption.decode('utf-8')
-    print filtered_caption.decode('utf-8').lower()
+
+    # print filtered_caption.decode('utf-8').lower()
 
 print "Number of posts: " + str(len(posts_text))
 
@@ -152,7 +152,6 @@ ldamodel.save(model_path)
 print(ldamodel.print_topics(num_topics=8, num_words=10))
 
 print "DONE"
-
 
 
 
