@@ -8,8 +8,8 @@ TODO: Check how Caffe interacts with the class of the created layer
 import caffe
 from caffe import layers as L
 
-split_train = '/lda_gt/train_500_chunck30000_th0.txt'
-split_val = '/lda_gt/myval_500_chunck30000_th0.txt'
+split_train = '/lda_gt/train_500_chunck80000'
+split_val = '/lda_gt/myval_500_chunck80000'
 num_labels = 500
 batch_size = 100 #AlexNet 100, VGG 40
 resize_w = 256
