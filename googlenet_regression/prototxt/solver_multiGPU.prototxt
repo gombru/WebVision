@@ -2,9 +2,9 @@ train_net: "prototxt/train.prototxt"
 test_net: "prototxt/val.prototxt"
 test_iter: 1
 test_interval: 10000000
-base_lr: 0.01
+base_lr: 0.005
 display: 500
-average_loss: 200
+average_loss: 1000
 iter_size: 1
 max_iter: 10000000
 lr_policy: "poly"

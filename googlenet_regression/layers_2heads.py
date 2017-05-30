@@ -59,6 +59,7 @@ class twoHeadsDataLayer(caffe.Layer):
 
         self.num_classes= params['num_classes']
 
+        print "Initialiting data layer"
 
         # two tops: data and label
         if len(top) != 3:
@@ -68,25 +69,49 @@ class twoHeadsDataLayer(caffe.Layer):
             raise Exception("Do not define a bottom.")
 
         # load indices for images and labels
-        split_f  = '{}/{}.txt'.format(self.dir,
-                self.split)
-        self.indices = open(split_f, 'r').read().splitlines()
-        # self.labels = [int(i.split(',', 1)[1]) for i in self.indices]
+        split_f  = '{}/{}.txt'.format(self.dir,self.split)
+
+        # self.anns = open(split_f, 'r').read().splitlines()
+
+        # get number of images
+        #num_lines = 10001
+        num_lines = sum(1 for line in open(split_f))
+        print "Number of images: " + str(num_lines)
+
 
         # Load labels for multiclass
-        self.labelsRegression = np.zeros((len(self.indices), self.num_classes))
-        self.labels = np.zeros((len(self.indices), 1))
+        self.indices = np.empty([num_lines], dtype="S50")
+        self.labelsRegression = np.zeros((num_lines, self.num_classes))
+        self.labels = np.zeros((num_lines, 1))
 
-        for c,i in enumerate(self.indices):
-            data = i.split(',')
-            #Load regression labels
-            for l in range(0,self.num_classes):
-                self.labelsRegression[c,l] = float(data[l+2])
-            #Load classification labels
+        print "Reading labels file: " + '{}/{}.txt'.format(self.dir,self.split)
+        with open(split_f, 'r') as annsfile:
+            for c,i in enumerate(annsfile):
+            #for c,i in enumerate(self.anns):
+                
+                data = i.split(',')
+
+                #Load index
+                self.indices[c] = data[0]
+
+                #print self.indices[c]
+
+                #Load classification labels
                 self.labels[c] = int(data[1])
+    
+                #Load regression labels
+                for l in range(0,self.num_classes):
+                    self.labelsRegression[c,l] = float(data[l+2])
+
+                if c % 10000 == 0: print "Read " + str(c) + " / " + str(num_lines)
+                #if c == 10000: break
+
+                
 
 
-        self.indices = [i.split(',', 1)[0] for i in self.indices]
+        # self.indices = [i.split(',', 1)[0] for i in self.indices]
+        
+        print "Labels read."
 
         # make eval deterministic
         # if 'train' not in self.split and 'trainTrump' not in self.split:
@@ -160,7 +185,7 @@ class twoHeadsDataLayer(caffe.Layer):
         """
         # print '{}/img/trump/{}.jpg'.format(self.dir, idx)
         # start = time.time()
-        im = Image.open('{}/{}.jpg'.format(self.dir, idx))
+        im = Image.open('{}/{}'.format(self.dir, idx))
         # To resize try im = scipy.misc.imresize(im, self.im_shape)
         #.resize((self.resize_w, self.resize_h), Image.ANTIALIAS) # --> No longer suing this resizing, no if below
         # end = time.time()

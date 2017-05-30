@@ -15,12 +15,12 @@ import json
 
 # Load data and model
 text_data_path = '../../../datasets/WebVision/'
-model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_30000chunck.model'
+model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_80000chunck.model'
 
 # Create output files
-train_gt_path = '../../../datasets/WebVision/lda_gt/' + 'train' + '_500_chunck30000_th0.txt'
+train_gt_path = '../../../datasets/WebVision/lda_gt/' + 'train' + '_500_chunck80000_train.txt'
 train_file = open(train_gt_path, "w")
-val_gt_path = '../../../datasets/WebVision/lda_gt/' + 'myval' + '_500_chunck30000_th0.txt'
+val_gt_path = '../../../datasets/WebVision/lda_gt/' + 'myval' + '_500_chunck80000_myval.txt'
 val_file = open(val_gt_path, "w")
 
 
@@ -46,7 +46,7 @@ p_stemmer = PorterStemmer()
 
 topics = ldamodel.print_topics(num_topics=num_topics, num_words=50)
 
-print topics
+# print topics
 
 # Save a txt with the topics and the weights
 file = open('topics.txt', 'w')
@@ -112,10 +112,11 @@ def infer_LDA(d):
         return d[0] + ',' + str(d[1]) + topic_probs
 
 
-data = []
+
 sources=['google','flickr']
 former_filename = ' '
 for s in sources:
+    data = []
     print 'Loading data from ' + s
     data_file = open(text_data_path + 'info/train_meta_list_' + s + '.txt', "r")
     img_list_file = open(text_data_path + 'info/train_filelist_' + s + '.txt', "r")
@@ -128,11 +129,11 @@ for s in sources:
 
     for i,line in enumerate(data_file):
 
-        filename = line.split(' ')[0]
+        filename = line.split(' ')[0].replace(s,s+'_json')
         idx = int(line.split(' ')[1])
 
         if filename != former_filename:
-            print filename
+            # print filename
             json_data = open(text_data_path + filename)
             d = json.load(json_data)
             former_filename = filename
@@ -147,12 +148,16 @@ for s in sources:
 
         data.append([img_names[i],img_classes[i],caption])
 
+
+    print "Number of elements for " + s + ": " + str(len(data))
     parallelizer = Parallel(n_jobs=threads)
     print "Infering LDA scores"
     tasks_iterator = (delayed(infer_LDA)(d) for d in data)
     r = parallelizer(tasks_iterator)
     # merging the output of the jobs
     strings = np.vstack(r)
+
+    print "Resulting number of elements for " + s + ": " + str(len(strings))
 
     print "Saving results"
     for s in strings:

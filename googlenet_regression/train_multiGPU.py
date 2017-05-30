@@ -14,8 +14,8 @@ snapshot = 0
 gpus = [0,1,2,3] # list of device ids # last GPU requires por mem (9000-5000)
 timing = False # show timing info for compute and communications
 plotting = True # plot loss
-test_interval = 5000 # do validation each this iterations
-test_iters = 200 # number of validation iterations
+test_interval = 4000 # do validation each this iterations #5000
+test_iters = 200 # number of validation iterations #200
 
 
 def train(solver_path,  snapshot,  gpus):
@@ -91,7 +91,7 @@ def plot(solver, nccl):
     _, ax1 = subplots()
     ax2 = ax1.twinx()
     ax1.set_xlabel('iteration')
-    ax1.set_ylabel('train loss C (r)', 'val loss C (y)', 'train loss R (m)', 'val loss R (k)')
+    ax1.set_ylabel('train loss C (r), val loss C (y),m train loss R (m), val loss R (k)')
     ax2.set_ylabel('train TOP1 (b), val TOP1 (g), train TOP-5 (2) (c)')
     ax2.set_autoscaley_on(False)
     ax2.set_ylim([0, 1])
@@ -109,9 +109,9 @@ def plot(solver, nccl):
             lossC[solver.iter] = solver.net.blobs['loss3/loss3'].data.copy()
             lossR[solver.iter] = solver.net.blobs['loss3/loss3/R'].data.copy()
             acc1[solver.iter] = solver.net.blobs['loss3/top-1'].data.copy()
-            acc5[solver.iter] = solver.net.blobs['loss3/top-5'].data.copy()
+            acc5[solver.iter] = solver.net.blobs['loss2/top-5'].data.copy()
 
-            loss_disp = 'lossC=' + str(lossC[solver.iter]) + ' top-1=' + str(acc1[solver.iter])
+            loss_disp = 'loss3C= ' + str(lossC[solver.iter]) +  '  loss3R= ' + str(lossR[solver.iter]) + '  top-1= ' + str(acc1[solver.iter]) 
 
             print '%3d) %s' % (solver.iter, loss_disp)
 
@@ -125,7 +125,7 @@ def plot(solver, nccl):
             ax2.plot(it_axes[0:solver.iter / display], train_top1[0:solver.iter / display], 'b')
             ax2.plot(it_axes[0:solver.iter / display], train_top5[0:solver.iter / display], 'c')
 
-            #ax1.set_ylim([5, 7])
+            ax1.set_ylim([0, 10])
             plt.title(training_id)
             plt.ion()
             plt.grid(True)
@@ -157,7 +157,7 @@ def plot(solver, nccl):
             ax1.plot(it_val_axes[0:solver.iter / test_interval], val_loss_R[0:solver.iter / test_interval], 'k')
             ax2.plot(it_val_axes[0:solver.iter / test_interval], val_top1[0:solver.iter / test_interval], 'g')
 
-            #ax1.set_ylim([5, 7])
+            ax1.set_ylim([0, 10])
             plt.title(training_id)
             plt.ion()
             plt.grid(True)
