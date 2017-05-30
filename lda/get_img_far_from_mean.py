@@ -12,18 +12,27 @@ from joblib import Parallel, delayed
 import numpy as np
 from random import randint
 import json
+from shutil import copyfile
+import os
+
 
 # Load data and model
 text_data_path = '../../../datasets/WebVision/'
 model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_80000chunck.model'
 
 # Create output files
-class_means_file = '../../../datasets/WebVision/lda_gt/class_means_500_80000chunck.txt'
-class_means_file = open(class_means_file, "w")
-class_num_file = '../../../datasets/WebVision/lda_gt/class_num.txt'
-class_num_file = open(class_num_file, "w")
+train_gt_path = '../../../datasets/WebVision/lda_gt/' + 'train' + '_filteredbyLDA_500_chunck80000.txt'
+train_file = open(train_gt_path, "w")
 
+filtered_file_path = '../../../datasets/WebVision/lda_gt/numfilteredbyLDA_500_chunck80000.txt'
+filtered_file = open(filtered_file_path, "w")
 
+# Read mean class topic distributions
+mean_class_distributions_path = '../../../datasets/WebVision/lda_gt/class_means_500_80000chunck.txt'
+mean_class_distributions = np.loadtxt(mean_class_distributions_path)
+filtered = np.zeros([1000,1])
+
+distance_ths = [0.99, 0.95, 0.9, 0.8, 0.7, 0.6, 0.5]
 
 num_topics = 500
 threads = 12
@@ -61,7 +70,7 @@ file.close()
 
 def infer_LDA(d):
 
-        caption = d[1]
+        caption = d[2]
         filtered_caption = ""
 
         # Replace hashtags with spaces
@@ -109,30 +118,37 @@ def infer_LDA(d):
             if not assigned:
                 topic_probs = topic_probs + ',' + '0'
 
-        # print id + topic_probs
-        return str(d[0]) + '_' + topic_probs
+        # Compute distance between mean topic distribution of the class and this sample
+        distribution = np.fromstring(topic_probs[1:], dtype=float, sep=",")
+        distance = np.dot(distribution,mean_class_distributions[int(d[1]),:])
+        print distance
+        for th in distance_ths:
+            if not os.path.exists('../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1])):
+                os.makedirs('../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]))
+            if distance > th :
+                copyfile('../../../datasets/WebVision/' + d[0],'../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]) + '/'+ d[0].split('/')[-1])
 
 
 
 sources=['google','flickr']
+classes=[0,35,102,255,333,444,567,767,888,900]
+
 former_filename = ' '
-
-class_topics = np.zeros([1000,500])
-class_instances = np.zeros([1000,1])
-
 for s in sources:
     data = []
     print 'Loading data from ' + s
     data_file = open(text_data_path + 'info/train_meta_list_' + s + '.txt', "r")
     img_list_file = open(text_data_path + 'info/train_filelist_' + s + '.txt', "r")
 
+    img_names = []
     img_classes = []
     for line in img_list_file:
+        img_names.append(line.split(' ')[0])
         img_classes.append(int(line.split(' ')[1]))
 
     for i,line in enumerate(data_file):
 
-        # if i == 20000: break
+        if int(img_classes[i]) not in classes: continue
         filename = line.split(' ')[0].replace(s,s+'_json')
         idx = int(line.split(' ')[1])
 
@@ -150,42 +166,11 @@ for s in sources:
             for tag in d[idx-1]['tags']:
                 caption = caption + tag + ' '
 
-        data.append([img_classes[i],caption])
+        data.append([img_names[i],img_classes[i],caption])
 
 
     print "Number of elements for " + s + ": " + str(len(data))
     parallelizer = Parallel(n_jobs=threads)
-    print "Infering LDA scores"
+    print "Infering LDA scores and saving images"
     tasks_iterator = (delayed(infer_LDA)(d) for d in data)
-    r = parallelizer(tasks_iterator)
-    # merging the output of the jobs
-    strings = np.vstack(r)
-
-
-
-    print "Resulting number of elements for " + s + ": " + str(len(strings))
-
-    print "Saving results"
-    for s in strings:
-
-        img_d = s[0].split('_')
-        class_id = int(img_d[0])
-        distribution = np.fromstring(img_d[1][1:], dtype=float, sep=",")
-
-        # Accumulate class stats
-        class_topics[class_id,:] = class_topics[class_id,:] + distribution
-        class_instances[class_id] = class_instances[class_id] + 1
-
-    data_file.close()
-    img_list_file.close()
-
-for i in range(0, 1000):
-    print "Num per class " + str(i) + ' : ' + str(class_instances[i])
-    class_topics[i, :] = class_topics[i, :] / class_instances[i]
-np.savetxt(class_means_file, class_topics, fmt='%10.5f', newline="\n")
-np.savetxt(class_num_file, class_instances, fmt='%i', newline="\n")
-
-class_num_file.close()
-class_means_file.close()
-
-print "Done"
+    parallelizer(tasks_iterator)

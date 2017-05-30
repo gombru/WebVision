@@ -29,7 +29,7 @@ mean_class_distributions_path = '../../../datasets/WebVision/lda_gt/class_means_
 mean_class_distributions = np.loadtxt(mean_class_distributions_path)
 filtered = np.zeros([1000,1])
 
-distance_th = 0.1
+distance_th = 0.4
 
 num_topics = 500
 threads = 12
@@ -119,8 +119,8 @@ def infer_LDA(d):
         distribution = np.fromstring(topic_probs[1:], dtype=float, sep=",")
         distance = np.dot(distribution,mean_class_distributions[int(d[1]),:])
 
-
         if distance > distance_th :
+            print distance
             return "_" + ',' + str(d[0]) + ',' + str(d[1])
 
         # print id + topic_probs
@@ -143,6 +143,8 @@ for s in sources:
         img_classes.append(int(line.split(' ')[1]))
 
     for i,line in enumerate(data_file):
+
+        # if i == 20000: break
 
         filename = line.split(' ')[0].replace(s,s+'_json')
         idx = int(line.split(' ')[1])
