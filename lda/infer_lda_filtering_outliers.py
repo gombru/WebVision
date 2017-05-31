@@ -18,7 +18,7 @@ text_data_path = '../../../datasets/WebVision/'
 model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_80000chunck.model'
 
 # Create output files
-train_gt_path = '../../../datasets/WebVision/lda_gt/' + 'train' + '_filteredbyLDA_500_chunck80000.txt'
+train_gt_path = '../../../datasets/WebVision/lda_gt/train_filteredbyLDA_500_chunck80000.txt'
 train_file = open(train_gt_path, "w")
 
 filtered_file_path = '../../../datasets/WebVision/lda_gt/numfilteredbyLDA_500_chunck80000.txt'
@@ -34,7 +34,7 @@ distance_th = 0.4
 num_topics = 500
 threads = 12
 
-words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube']
+words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube', 'images', 'blog', 'pinterest']
 
 # create English stop words list
 en_stop = get_stop_words('en')

@@ -27,7 +27,7 @@ val_file = open(val_gt_path, "w")
 num_topics = 500
 threads = 12
 
-words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube']
+words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube', 'images', 'blog', 'pinterest']
 
 # create English stop words list
 en_stop = get_stop_words('en')

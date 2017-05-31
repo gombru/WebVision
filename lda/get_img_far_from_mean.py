@@ -37,7 +37,7 @@ distance_ths = [0.99, 0.95, 0.9, 0.8, 0.7, 0.6, 0.5]
 num_topics = 500
 threads = 12
 
-words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube']
+words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube', 'images', 'blog', 'pinterest']
 
 # create English stop words list
 en_stop = get_stop_words('en')

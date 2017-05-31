@@ -28,7 +28,7 @@ class_num_file = open(class_num_file, "w")
 num_topics = 500
 threads = 12
 
-words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube']
+words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube', 'images', 'blog', 'pinterest']
 
 # create English stop words list
 en_stop = get_stop_words('en')
@@ -168,13 +168,17 @@ for s in sources:
     print "Saving results"
     for s in strings:
 
-        img_d = s[0].split('_')
-        class_id = int(img_d[0])
-        distribution = np.fromstring(img_d[1][1:], dtype=float, sep=",")
+        try:
+            img_d = s[0].split('_')
+            class_id = int(img_d[0])
+            distribution = np.fromstring(img_d[1][1:], dtype=float, sep=",")
 
-        # Accumulate class stats
-        class_topics[class_id,:] = class_topics[class_id,:] + distribution
-        class_instances[class_id] = class_instances[class_id] + 1
+            # Accumulate class stats
+            class_topics[class_id,:] = class_topics[class_id,:] + distribution
+            class_instances[class_id] = class_instances[class_id] + 1
+        except:
+            print "Error saving sample info"
+            continue
 
     data_file.close()
     img_list_file.close()

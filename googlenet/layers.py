@@ -8,7 +8,7 @@ import time
 import random
 
 
-class twoHeadsDataLayer(caffe.Layer):
+class customDataLayer(caffe.Layer):
     """
     Load (input image, label image) pairs from the SBDD extended labeling
     of PASCAL VOC for semantic segmentation
@@ -62,8 +62,8 @@ class twoHeadsDataLayer(caffe.Layer):
         print "Initialiting data layer"
 
         # two tops: data and label
-        if len(top) != 3:
-            raise Exception("Need to define two tops: data, regression labels and classification label.")
+        if len(top) != 2:
+            raise Exception("Need to define two tops: data and classification label.")
         # data layers have no bottoms
         if len(bottom) != 0:
             raise Exception("Do not define a bottom.")
@@ -81,35 +81,20 @@ class twoHeadsDataLayer(caffe.Layer):
 
         # Load labels for multiclass
         self.indices = np.empty([num_lines], dtype="S50")
-        self.labelsRegression = np.zeros((num_lines, self.num_classes))
         self.labels = np.zeros((num_lines, 1))
 
         print "Reading labels file: " + '{}/{}.txt'.format(self.dir,self.split)
         with open(split_f, 'r') as annsfile:
             for c,i in enumerate(annsfile):
-            #for c,i in enumerate(self.anns):
-                
                 data = i.split(',')
-
                 #Load index
                 self.indices[c] = data[0]
-
-                #print self.indices[c]
-
                 #Load classification labels
                 self.labels[c] = int(data[1])
-    
-                #Load regression labels
-                for l in range(0,self.num_classes):
-                    self.labelsRegression[c,l] = float(data[l+2])
 
                 if c % 10000 == 0: print "Read " + str(c) + " / " + str(num_lines)
                 #if c == 10000: break
 
-                
-
-
-        # self.indices = [i.split(',', 1)[0] for i in self.indices]
         
         print "Labels read."
 
@@ -134,26 +119,22 @@ class twoHeadsDataLayer(caffe.Layer):
         # since we use a fixed input image size, we can shape the data layer
         # once. Else, we'd have to do it in the reshape call.
         top[0].reshape(self.batch_size, 3, params['crop_w'], params['crop_h'])
-        top[1].reshape(self.batch_size, self.num_classes)
-        top[2].reshape(self.batch_size, 1)
+        top[1].reshape(self.batch_size, 1)
 
 
     def reshape(self, bottom, top):
         # load image + label image pair
         self.data = np.zeros((self.batch_size, 3, self.crop_w, self.crop_h))
-        self.labelRegression = np.zeros((self.batch_size, self.num_classes))
         self.label = np.zeros((self.batch_size, 1))
 
         for x in range(0,self.batch_size):
             self.data[x,] = self.load_image(self.indices[self.idx[x]])
-            self.labelRegression[x,] = self.labelsRegression[self.idx[x],]
             self.label[x,] = self.labels[self.idx[x],]
 
     def forward(self, bottom, top):
         # assign output
         top[0].data[...] = self.data
-        top[1].data[...] = self.labelRegression
-        top[2].data[...] = self.label
+        top[1].data[...] = self.label
 
         self.idx = np.arange(self.batch_size)
 
@@ -185,7 +166,10 @@ class twoHeadsDataLayer(caffe.Layer):
         """
         # print '{}/img/trump/{}.jpg'.format(self.dir, idx)
         # start = time.time()
-        im = Image.open('{}/{}'.format(self.dir, idx))
+        if self.split == '/info/val_filelist':
+            im = Image.open('{}/{}/{}'.format(self.dir,'val_images_256', idx))
+        else:
+            im = Image.open('{}/{}'.format(self.dir, idx))
         # To resize try im = scipy.misc.imresize(im, self.im_shape)
         #.resize((self.resize_w, self.resize_h), Image.ANTIALIAS) # --> No longer suing this resizing, no if below
         # end = time.time()
