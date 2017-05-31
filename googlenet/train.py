@@ -13,11 +13,11 @@ training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck' # name to save t
 # weights = '../../../datasets/SocialMedia/models/pretrained/bvlc_reference_caffenet.caffemodel'
 # assert os.path.exists(weights)
 
-display_interval = 20
+display_interval = 2
 niter = 100011100
 
 #number of validating images  is  test_iters * batchSize
-test_interval = 120 #200
+test_interval = 10 #200
 test_iters = 20 #20
 solver_filename = 'prototxt/solver.prototxt'
 solver = caffe.get_solver(solver_filename)

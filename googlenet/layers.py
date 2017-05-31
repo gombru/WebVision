@@ -214,9 +214,10 @@ class customDataLayer(caffe.Layer):
 
     def random_crop(self,im):
         # Crops a random region of the image that will be used for training. Margin won't be included in crop.
+        width, height = im.size
         margin = self.crop_margin
-        left = random.randint(margin,self.resize_w - self.crop_w - 1 - margin)
-        top = random.randint(margin,self.resize_h - self.crop_h - 1 - margin)
+        left = random.randint(margin, width - self.crop_w - 1 - margin)
+        top = random.randint(margin, height - self.crop_h - 1 - margin)
         im = im.crop((left, top, left + self.crop_w, top + self.crop_h))
         return im
 
