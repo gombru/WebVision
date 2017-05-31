@@ -121,10 +121,10 @@ def infer_LDA(d):
 
         if distance > distance_th :
             print distance
-            return "_" + ',' + str(d[0]) + ',' + str(d[1])
+            return "_" + ' ' + str(d[0]) + ' ' + str(d[1])
 
         # print id + topic_probs
-        return str(d[0]) + ',' + str(d[1])
+        return str(d[0]) + ' ' + str(d[1])
 
 
 
@@ -179,8 +179,8 @@ for s in sources:
     print "Saving results"
     for s in strings:
 
-        if s[0].split(',')[0] == '_':
-            filtered[int(s[0].split(',')[2])] = filtered[int(s[0].split(',')[2])] + 1
+        if s[0].split(' ')[0] == '_':
+            filtered[int(s[0].split(' ')[2])] = filtered[int(s[0].split(' ')[2])] + 1
             continue
         # Create splits random
         try:

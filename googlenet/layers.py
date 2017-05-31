@@ -87,7 +87,7 @@ class customDataLayer(caffe.Layer):
         print "Reading labels file: " + '{}/{}.txt'.format(self.dir,self.split)
         with open(split_f, 'r') as annsfile:
             for c,i in enumerate(annsfile):
-                data = i.split(',')
+                data = i.split(' ')
                 #Load index
                 self.indices[c] = data[0]
                 #Load classification labels
