@@ -121,17 +121,18 @@ def infer_LDA(d):
         # Compute distance between mean topic distribution of the class and this sample
         distribution = np.fromstring(topic_probs[1:], dtype=float, sep=",")
         distance = np.dot(distribution,mean_class_distributions[int(d[1]),:])
-        print distance
+        #print distance
         for th in distance_ths:
             if not os.path.exists('../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1])):
                 os.makedirs('../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]))
             if distance > th :
-                copyfile('../../../datasets/WebVision/' + d[0],'../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]) + '/'+ d[0].split('/')[-1])
+                if not os.path.exists('../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]) + '/'+ d[0].split('/')[-1]):
+                    copyfile('../../../datasets/WebVision/' + d[0],'../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]) + '/'+ d[0].split('/')[-1])
 
 
 
 sources=['google','flickr']
-classes=[0,35,102,255,333,444,567,767,888,900]
+classes=[0,2,5,6,10,15,20,21,30,31]
 
 former_filename = ' '
 for s in sources:
