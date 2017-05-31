@@ -29,7 +29,7 @@ mean_class_distributions_path = '../../../datasets/WebVision/lda_gt/class_means_
 mean_class_distributions = np.loadtxt(mean_class_distributions_path)
 filtered = np.zeros([1000,1])
 
-distance_th = 0.4
+score_th = 0.005
 
 num_topics = 500
 threads = 12
@@ -117,10 +117,10 @@ def infer_LDA(d):
 
         # Compute distance between mean topic distribution of the class and this sample
         distribution = np.fromstring(topic_probs[1:], dtype=float, sep=",")
-        distance = np.dot(distribution,mean_class_distributions[int(d[1]),:])
+        score = np.dot(distribution,mean_class_distributions[int(d[1]),:])
 
-        if distance > distance_th :
-            print distance
+        if score < score_th :
+            #print score
             return "_" + ' ' + str(d[0]) + ' ' + str(d[1])
 
         # print id + topic_probs
@@ -144,7 +144,7 @@ for s in sources:
 
     for i,line in enumerate(data_file):
 
-        # if i == 20000: break
+        #if i == 4000: break
 
         filename = line.split(' ')[0].replace(s,s+'_json')
         idx = int(line.split(' ')[1])
