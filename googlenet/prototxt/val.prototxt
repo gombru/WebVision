@@ -906,9 +906,6 @@ layer {
   bottom: "loss1/classifier"
   bottom: "label"
   top: "loss1/top-1"
-  include {
-    phase: TEST
-  }
 }
 layer {
   name: "loss1/top-5"
@@ -916,9 +913,6 @@ layer {
   bottom: "loss1/classifier"
   bottom: "label"
   top: "loss1/top-5"
-  include {
-    phase: TEST
-  }
   accuracy_param {
     top_k: 5
   }
@@ -1669,9 +1663,6 @@ layer {
   bottom: "loss2/classifier"
   bottom: "label"
   top: "loss2/top-1"
-  include {
-    phase: TEST
-  }
 }
 layer {
   name: "loss2/top-5"
@@ -1679,9 +1670,6 @@ layer {
   bottom: "loss2/classifier"
   bottom: "label"
   top: "loss2/top-5"
-  include {
-    phase: TEST
-  }
   accuracy_param {
     top_k: 5
   }
@@ -2382,9 +2370,6 @@ layer {
   bottom: "loss3/classifier"
   bottom: "label"
   top: "loss3/top-1"
-  include {
-    phase: TEST
-  }
 }
 layer {
   name: "loss3/top-5"
@@ -2392,9 +2377,6 @@ layer {
   bottom: "loss3/classifier"
   bottom: "label"
   top: "loss3/top-5"
-  include {
-    phase: TEST
-  }
   accuracy_param {
     top_k: 5
   }
