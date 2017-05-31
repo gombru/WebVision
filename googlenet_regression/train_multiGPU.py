@@ -9,8 +9,8 @@ from pylab import zeros, arange, subplots, plt, savefig
 
 training_id = 'WebVision_Inception_500_80000chunck' # name to save the training plots
 solver_path = 'prototxt/solver_multiGPU.prototxt' # solver proto definition
-#snapshot = '../../../datasets/SocialMedia/models/pretrained/bvlc_googlenet.caffemodel' # snapshot to restore (only weights initialzation)
-snapshot = 0
+snapshot = '../../../datasets/WebVision/models/CNNRegression/WebVision_Inception_500_80000chunck_iter_60000.caffemodel' # snapshot to restore (only weights initialzation)
+#snapshot = 0
 gpus = [0,1,2,3] # list of device ids # last GPU requires por mem (9000-5000)
 timing = False # show timing info for compute and communications
 plotting = True # plot loss
