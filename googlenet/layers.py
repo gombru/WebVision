@@ -47,6 +47,7 @@ class customDataLayer(caffe.Layer):
         self.random = params.get('randomize', True)
         self.seed = params.get('seed', None)
         self.batch_size = params['batch_size']
+        self.resize = params['resize']
         self.resize_w = params['resize_w']
         self.resize_h = params['resize_h']
         self.crop_w = params['crop_w']
@@ -175,8 +176,9 @@ class customDataLayer(caffe.Layer):
         # end = time.time()
         # print "Time load and resize image: " + str((end - start))
 
-        if im.size[0] != self.resize_w or im.size[1] != self.resize_h:
-            im = im.resize((self.resize_w, self.resize_h), Image.ANTIALIAS)
+        if self.resize:
+            if im.size[0] != self.resize_w or im.size[1] != self.resize_h:
+                im = im.resize((self.resize_w, self.resize_h), Image.ANTIALIAS)
 
         if( im.size.__len__() == 2):
             im_gray = im
