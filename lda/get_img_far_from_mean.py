@@ -32,7 +32,7 @@ mean_class_distributions_path = '../../../datasets/WebVision/lda_gt/class_means_
 mean_class_distributions = np.loadtxt(mean_class_distributions_path)
 filtered = np.zeros([1000,1])
 
-distance_ths = [0.29,0.28,0.27,0.26,0.25,0.24,0.23,0.22,0.21,0.2]
+distance_ths = [0.1,0.09,0.08,0.07,0.06,0.05,0.04,0.03,0.02,0.01,0.009,0.008,0.007,0.006,0.005,0.001]
 
 num_topics = 500
 threads = 12
@@ -120,22 +120,24 @@ def infer_LDA(d):
 
         # Compute distance between mean topic distribution of the class and this sample
         distribution = np.fromstring(topic_probs[1:], dtype=float, sep=",")
-        distance = np.dot(distribution,mean_class_distributions[int(d[1]),:])
+        score = np.dot(distribution,mean_class_distributions[int(d[1]),:])
 
         for th in distance_ths:
             if not os.path.exists('../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1])):
                 os.makedirs('../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]))
-            if distance > th :
-                if not os.path.exists('../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]) + '/'+ d[0].split('/')[-1]):
+            if score < th :
+                try:
                     print "Outlier found"
                     copyfile('../../../datasets/WebVision/' + d[0],'../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]) + '/'+ d[0].split('/')[-1])
-                else:
-                    print "File Exists: " + '../../../datasets/WebVision/far_from_mean/' + str(th) + '/' + str(d[1]) + '/'+ d[0].split('/')[-1]
+                except:
+                    print "File exists"
+                    continue
+
 
 
 sources=['google','flickr']
 classes=[0,100,200,300,400,500,600,700,800,900]
-#classes=[0]
+
 
 former_filename = ' '
 for s in sources:
