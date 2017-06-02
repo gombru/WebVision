@@ -11,7 +11,7 @@ caffe.set_mode_gpu()
 
 training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck' # name to save the training plots
 
-weights = '../../../datasets/WebVision/models/saved/WebVision_2head_Inception_500_80000chunck_iter_60000.caffemodel'
+weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_90000.caffemodel'
 assert os.path.exists(weights)
 
 display_interval = 500
@@ -20,7 +20,7 @@ niter = 100011100
 #number of validating images  is  test_iters * batchSize
 test_interval = 5000 #200
 test_iters = 100 #20
-solver_filename = 'prototxt/solver.prototxt'
+solver_filename = 'prototxt/solver. prototxt'
 solver = caffe.get_solver(solver_filename)
 
 #Copy init weights

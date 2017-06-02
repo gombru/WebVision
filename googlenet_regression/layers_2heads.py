@@ -47,6 +47,7 @@ class twoHeadsDataLayer(caffe.Layer):
         self.random = params.get('randomize', True)
         self.seed = params.get('seed', None)
         self.batch_size = params['batch_size']
+        self.resize = params['resize']
         self.resize_w = params['resize_w']
         self.resize_h = params['resize_h']
         self.crop_w = params['crop_w']
@@ -191,8 +192,9 @@ class twoHeadsDataLayer(caffe.Layer):
         # end = time.time()
         # print "Time load and resize image: " + str((end - start))
 
-        if im.size[0] != self.resize_w or im.size[1] != self.resize_h:
-            im = im.resize((self.resize_w, self.resize_h), Image.ANTIALIAS)
+        if self.resize:
+            if im.size[0] != self.resize_w or im.size[1] != self.resize_h:
+                im = im.resize((self.resize_w, self.resize_h), Image.ANTIALIAS)
 
         if( im.size.__len__() == 2):
             im_gray = im
@@ -228,9 +230,10 @@ class twoHeadsDataLayer(caffe.Layer):
 
     def random_crop(self,im):
         # Crops a random region of the image that will be used for training. Margin won't be included in crop.
+        width, height = im.size
         margin = self.crop_margin
-        left = random.randint(margin,self.resize_w - self.crop_w - 1 - margin)
-        top = random.randint(margin,self.resize_h - self.crop_h - 1 - margin)
+        left = random.randint(margin, width - self.crop_w - 1 - margin)
+        top = random.randint(margin, height - self.crop_h - 1 - margin)
         im = im.crop((left, top, left + self.crop_w, top + self.crop_h))
         return im
 
