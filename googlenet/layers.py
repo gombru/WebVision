@@ -128,12 +128,17 @@ class customDataLayer(caffe.Layer):
         self.data = np.zeros((self.batch_size, 3, self.crop_w, self.crop_h))
         self.label = np.zeros((self.batch_size, 1))
 
+        #start = time.time()
         for x in range(0,self.batch_size):
             self.data[x,] = self.load_image(self.indices[self.idx[x]])
             self.label[x,] = self.labels[self.idx[x],]
+        #end = time.time()
+        #print "Time Read IMG, LABEL and dat augmentation: " + str((end-start))
 
     def forward(self, bottom, top):
         # assign output
+        #start = time.time()
+
         top[0].data[...] = self.data
         top[1].data[...] = self.label
 
@@ -152,6 +157,9 @@ class customDataLayer(caffe.Layer):
                 for x in range(0, self.batch_size):
                     self.idx[x] = x
 
+        #end = time.time()
+        #print "Time fordward: " + str((end-start))
+
 
     def backward(self, top, propagate_down, bottom):
         pass
@@ -166,15 +174,15 @@ class customDataLayer(caffe.Layer):
         - transpose to channel x height x width order
         """
         # print '{}/img/trump/{}.jpg'.format(self.dir, idx)
-        # start = time.time()
+        #start = time.time()
         if self.split == '/info/val_filelist':
             im = Image.open('{}/{}/{}'.format(self.dir,'val_images_256', idx))
         else:
             im = Image.open('{}/{}'.format(self.dir, idx))
         # To resize try im = scipy.misc.imresize(im, self.im_shape)
         #.resize((self.resize_w, self.resize_h), Image.ANTIALIAS) # --> No longer suing this resizing, no if below
-        # end = time.time()
-        # print "Time load and resize image: " + str((end - start))
+        #end = time.time()
+        #print "Time load and resize image: " + str((end - start))
 
         if self.resize:
             if im.size[0] != self.resize_w or im.size[1] != self.resize_h:
@@ -185,7 +193,7 @@ class customDataLayer(caffe.Layer):
             im = Image.new("RGB", im_gray.size)
             im.paste(im_gray)
 
-        # start = time.time()
+        #start = time.time()
         if self.train: #Data Aumentation
             if(self.rotate is not 0):
                 im = self.rotate_image(im)
@@ -199,8 +207,8 @@ class customDataLayer(caffe.Layer):
             if(self.HSV_prob is not 0):
                 im = self.saturation_value_jitter_image(im)
 
-        # end = time.time()
-        # print "Time data aumentation: " + str((end - start))
+        #end = time.time()
+        #print "Time data aumentation: " + str((end - start))
 
         in_ = np.array(im, dtype=np.float32)
         in_ = in_[:,:,::-1]
@@ -313,8 +321,11 @@ class customDataLayerWithLabelScore(caffe.Layer):
         # Load labels for multiclass
         self.indices = np.empty([num_lines], dtype="S50")
         self.labels = np.zeros((num_lines, 1))
-        self.labels_scores = np.zeros((num_lines, 1))
+        self.labels_scores = np.ones((num_lines, 1)) #Default labels_scores are ones
 
+        if self.split != '/info/val_filelist':
+            is_training = True
+            print "Is training: Will read labels scores."
 
         print "Reading labels file: " + '{}/{}.txt'.format(self.dir, self.split)
         with open(split_f, 'r') as annsfile:
@@ -325,7 +336,8 @@ class customDataLayerWithLabelScore(caffe.Layer):
                 # Load classification labels
                 self.labels[c] = int(data[1])
                 # Load label scores
-                self.labels_scores[c] = float(data[2])
+                if is_training:
+                    self.labels_scores[c] = float(data[2])
 
 
                 if c % 10000 == 0: print "Read " + str(c) + " / " + str(num_lines)

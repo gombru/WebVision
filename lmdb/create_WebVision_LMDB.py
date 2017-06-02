@@ -3,10 +3,13 @@ import lmdb
 import caffe
 import cv2
 import glob
+import lmdb
+import random
 
 outout_path = 'testlmdb'
 
 data_path = '../../../datasets/WebVision/'
+img_size = 256
 
 img_names = []
 img_classes = []
@@ -21,20 +24,29 @@ for s in sources:
 
     c=0
     for line in img_list_file:
-        if c == 100: break
+        if c == 10000: break
         c+=1
         img_names.append(line.split(' ')[0])
         img_classes.append(int(line.split(' ')[1]))
 
+# Shuffle the two list the same way
+print "Shuffling"
+c = list(zip(img_names, img_classes))
+random.shuffle(c)
+img_names, img_classes = zip(*c)
+
+
 N = len(img_names)
-X = np.zeros((N, 3, 256, 256), dtype=np.uint8)
+X = np.zeros((N, 3, img_size, img_size), dtype=np.uint8)
 y = np.zeros(N, dtype=np.int64)
 
 print "Number of images: " + str(N)
 
 print "Reading images"
 for i,img_path in enumerate(img_names):
+    if i%1000 == 0: print i
     img = cv2.imread(data_path + img_path, cv2.IMREAD_COLOR)
+    img = cv2.resize(img, (img_size, img_size))
     img = img[:, :, ::-1]
     img = img.transpose((2, 0, 1))
     X[i]=img
@@ -52,9 +64,12 @@ map_size = X.nbytes * 10
 
 env = lmdb.open(outout_path, map_size=map_size)
 
+print "Saving lmdb"
+
 with env.begin(write=True) as txn:
     # txn is a Transaction object
     for i in range(N):
+        if i % 1000 == 0: print i
         datum = caffe.proto.caffe_pb2.Datum()
         datum.channels = X.shape[1]
         datum.height = X.shape[2]

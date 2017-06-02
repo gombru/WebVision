@@ -2,6 +2,7 @@ import caffe
 import tempfile
 import numpy as np
 import os
+import time
 from pylab import zeros, arange, subplots, plt, savefig
 
 
@@ -11,9 +12,10 @@ caffe.set_mode_gpu()
 training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck' # name to save the training plots
 
 weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_20000.caffemodel'
+
 assert os.path.exists(weights)
 
-display_interval = 500
+display_interval = 5 #500
 niter = 100011100
 
 #number of validating images  is  test_iters * batchSize
@@ -58,7 +60,10 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
 
     #RUN TRAINING
     for it in range(niter):
+        #st = time.time()
         solver.step(1)  # run a single SGD step in Caffepy()
+        #en = time.time()
+        #print "Time step: " + str((en-st))
 
         #PLOT
         if it % display == 0 or it + 1 == niter:

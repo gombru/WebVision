@@ -18,18 +18,19 @@ text_data_path = '../../../datasets/WebVision/'
 model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_80000chunck.model'
 
 # Create output files
-train_gt_path = '../../../datasets/WebVision/lda_gt/train_filteredbyLDA_500_chunck80000.txt'
+train_gt_path = '../../../datasets/WebVision/lda_gt/train_scoredbyLDA_500_chunck80000.txt'
 train_file = open(train_gt_path, "w")
 
-filtered_file_path = '../../../datasets/WebVision/lda_gt/numfilteredbyLDA_500_chunck80000.txt'
-filtered_file = open(filtered_file_path, "w")
+# filtered_file_path = '../../../datasets/WebVision/lda_gt/numfilteredbyLDA_500_chunck80000.txt'
+# filtered_file = open(filtered_file_path, "w")
 
 # Read mean class topic distributions
 mean_class_distributions_path = '../../../datasets/WebVision/lda_gt/class_means_500_80000chunck.txt'
 mean_class_distributions = np.loadtxt(mean_class_distributions_path)
 filtered = np.zeros([1000,1])
 
-score_th = 0.005
+dicart_score_th = 0.005 # This threshold is to filter out
+score_th = 0.1  # This threshold is to score
 
 num_topics = 500
 threads = 12
@@ -119,12 +120,19 @@ def infer_LDA(d):
         distribution = np.fromstring(topic_probs[1:], dtype=float, sep=",")
         score = np.dot(distribution,mean_class_distributions[int(d[1]),:])
 
-        if score < score_th :
-            #print score
-            return "_" + ' ' + str(d[0]) + ' ' + str(d[1])
+        #Discard samples below score_th
+        # if score < discard_score_th :
+        #     #print score
+        #     return "_" + ' ' + str(d[0]) + ' ' + str(d[1])
 
-        # print id + topic_probs
-        return str(d[0]) + ' ' + str(d[1])
+        #Score samples belot score_th
+        label_score = 1 #Score the rest of samples with 1
+
+        if score < score_th:
+            label_score = score / score_th
+
+
+        return str(d[0]) + ' ' + str(d[1]) + ' ' + str(label_score)
 
 
 
@@ -144,8 +152,7 @@ for s in sources:
 
     for i,line in enumerate(data_file):
 
-        #if i == 4000: break
-
+        if i == 40: break
         filename = line.split(' ')[0].replace(s,s+'_json')
         idx = int(line.split(' ')[1])
 
@@ -179,25 +186,31 @@ for s in sources:
     print "Saving results"
     for s in strings:
 
-        if s[0].split(' ')[0] == '_':
-            filtered[int(s[0].split(' ')[2])] = filtered[int(s[0].split(' ')[2])] + 1
-            continue
-        # Create splits random
         try:
-            train_file.write(s[0] + '\n')
+
+            if s[0].split(' ')[0] == '_':
+                filtered[int(s[0].split(' ')[2])] = filtered[int(s[0].split(' ')[2])] + 1
+                continue
+            # Create splits random
+            try:
+                train_file.write(s[0] + '\n')
+            except:
+                print "Error writing to file: "
+                print s[0]
+                continue
         except:
-            print "Error writing to file: "
+            print "Error parsing string"
             print s[0]
             continue
 
     data_file.close()
     img_list_file.close()
 
-for i, f in enumerate(filtered):
-    print "Filtered in Class " + str(i) + ": " + str(f)
+# for i, f in enumerate(filtered):
+#     print "Filtered in Class " + str(i) + ": " + str(f)
 
-np.savetxt(filtered_file, filtered, fmt='%i', newline="\n")
-train_file.close()
-filtered_file.close()
+# np.savetxt(filtered_file, filtered, fmt='%i', newline="\n")
+# train_file.close()
+# filtered_file.close()
 
 print "Done"

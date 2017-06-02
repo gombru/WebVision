@@ -7,7 +7,7 @@ layer {
   python_param {
     module: "layers"
     layer: "customDataLayerWithLabelScore"
-    param_str: "{\'rotate\': 0, \'resize_h\': 256, \'HSV_jitter\': 0, \'dir\': \'../../../datasets/WebVision\', \'batch_size\': 8, \'crop_h\': 224, \'crop_w\': 224, \'train\': True, \'split\': \'/info/train_filelist_mini\', \'mirror\': True, \'num_classes\': 1000, \'resize_w\': 256, \'HSV_prob\': 0, \'crop_margin\': 2, \'resize\': False, \'mean\': (104.00699, 116.66877, 122.67892)}"
+    param_str: "{\'rotate\': 0, \'resize_h\': 256, \'HSV_jitter\': 0, \'dir\': \'../../../datasets/WebVision\', \'batch_size\': 8, \'crop_h\': 224, \'crop_w\': 224, \'train\': True, \'split\': \'/info/train_scoredbyLDA_500_chunck80000\', \'mirror\': True, \'num_classes\': 1000, \'resize_w\': 256, \'HSV_prob\': 0, \'crop_margin\': 2, \'resize\': False, \'mean\': (104.00699, 116.66877, 122.67892)}"
   }
 }
 layer {
@@ -894,11 +894,21 @@ layer {
   }
 }
 layer {
-  name: "loss1/loss"
-  type: "SoftmaxWithLoss"
-  bottom: "loss1/classifier"
-  bottom: "label"
-  top: "loss1/loss1"
+  type: 'Python'
+  name: 'loss1/loss'
+  top: 'loss1/loss1'
+  bottom: 'loss1/classifier'
+  bottom: 'label'
+  bottom: 'label_score'
+  python_param {
+    # the module name -- usually the filename -- that needs to be in $PYTHONPATH
+    module: 'SoftMaxSoftLabel'
+    # the layer name -- the class name in the module
+    layer: 'SoftmaxSoftLabel'
+  }
+  # set loss weight so Caffe knows this is a loss layer.
+  # since PythonLayer inherits directly from Layer, this isn't automatically
+  # known to Caffe
   loss_weight: 0.3
 }
 layer {
@@ -1651,11 +1661,21 @@ layer {
   }
 }
 layer {
-  name: "loss2/loss"
-  type: "SoftmaxWithLoss"
-  bottom: "loss2/classifier"
-  bottom: "label"
-  top: "loss2/loss1"
+  type: 'Python'
+  name: 'loss2/loss'
+  top: 'loss2/loss1'
+  bottom: 'loss2/classifier'
+  bottom: 'label'
+  bottom: 'label_score'
+  python_param {
+    # the module name -- usually the filename -- that needs to be in $PYTHONPATH
+    module: 'SoftMaxSoftLabel'
+    # the layer name -- the class name in the module
+    layer: 'SoftmaxSoftLabel'
+  }
+  # set loss weight so Caffe knows this is a loss layer.
+  # since PythonLayer inherits directly from Layer, this isn't automatically
+  # known to Caffe
   loss_weight: 0.3
 }
 layer {
