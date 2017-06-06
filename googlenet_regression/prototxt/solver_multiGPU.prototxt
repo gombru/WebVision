@@ -2,13 +2,13 @@ train_net: "prototxt/train.prototxt"
 test_net: "prototxt/val.prototxt"
 test_iter: 1
 test_interval: 10000000
-base_lr: 0.005
+base_lr: 0.01
 display: 500
 average_loss: 1000
 iter_size: 1
-max_iter: 10000000
 lr_policy: "poly"
 power: 0.5
+max_iter: 2400000
 momentum: 0.9
 weight_decay: 0.0002
 snapshot: 20000
