@@ -1,14 +1,13 @@
-train_net: "prototxt/train.prototxt"
-test_net: "prototxt/val.prototxt"
+train_net: "prototxt/train_lmdb.prototxt"
+test_net: "prototxt/val_lmdb.prototxt"
 test_iter: 1
 test_interval: 10000000
 display: 500
 average_loss: 1000
-base_lr: 0.01
-lr_policy: "step"
-stepsize: 320000
-gamma: 0.96
-max_iter: 10000000
+base_lr: 0.01 #0.01
+lr_policy: "poly"
+power: 0.5
+max_iter: 2400000
 momentum: 0.9
 weight_decay: 0.0002
 snapshot: 40000

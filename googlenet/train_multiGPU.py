@@ -9,12 +9,12 @@ from pylab import zeros, arange, subplots, plt, savefig
 
 training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck' # name to save the training plots
 solver_path = 'prototxt/solver_multiGPU.prototxt' # solver proto definition
-#snapshot = '../../../datasets/SocialMedia/models/pretrained/bvlc_googlenet.caffemodel' # snapshot to restore (only weights initialzation)
-snapshot = 0
+snapshot = '../../../datasets/WebVision/models/CNN/WebVision_Inception_LDAfiltering_500_80000chunck_iter_200000.caffemodel' # snapshot to restore (only weights initialzation)
+#snapshot = 0
 gpus = [0,1,2,3] # list of device ids # last GPU requires por mem (9000-5000)
 timing = False # show timing info for compute and communications
 plotting = True # plot loss
-test_interval = 4000 # do validation each this iterations #5000
+test_interval = 8000 # do validation each this iterations #5000
 test_iters = 200 # number of validation iterations #200
 
 

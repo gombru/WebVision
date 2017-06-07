@@ -4,18 +4,14 @@ layer {
   type: "Data"
   top: "data"
   top: "label"
-  include {
-    phase: TRAIN
-  }
+
   transform_param {
-    mirror: true
-    crop_size: 224
     mean_value: 104
     mean_value: 117
     mean_value: 123
   }
   data_param {
-    source: "/home/Imatge/ssd2/exampleLMDB"
+    source: "/home/Imatge/datasets/WebVision/WebVision_LMDB/val"
     batch_size: 80
     backend: LMDB
   }

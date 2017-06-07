@@ -15,7 +15,7 @@ layer {
     mean_value: 123
   }
   data_param {
-    source: "/home/Imatge/ssd2/exampleLMDB"
+    source: "/home/Imatge/ssd2/WebVision_LMDB/train_all"
     batch_size: 80
     backend: LMDB
   }
