@@ -11,11 +11,11 @@ caffe.set_mode_gpu()
 
 training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck' # name to save the training plots
 
-weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_20000.caffemodel'
+weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_320000.caffemodel'
 
 assert os.path.exists(weights)
 
-display_interval = 5 #500
+display_interval = 1 #500
 niter = 100011100
 
 #number of validating images  is  test_iters * batchSize

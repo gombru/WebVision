@@ -248,36 +248,9 @@ class customDataLayer(caffe.Layer):
 
 
 class customDataLayerWithLabelScore(caffe.Layer):
-    """
-    Load (input image, label image) pairs from the SBDD extended labeling
-    of PASCAL VOC for semantic segmentation
-    one-at-a-time while reshaping the net to preserve dimensions.
-
-    Use this to feed data to a fully convolutional network.
-    """
 
     def setup(self, bottom, top):
-        """
-        Setup data layer according to parameters:
 
-        - sbdd_dir: path to SBDD `dataset` dir
-        - split: train / seg11valid
-        - mean: tuple of mean values to subtract
-        - randomize: load in random order (default: True)
-        - seed: seed for randomization (default: None / current time)
-
-        for SBDD semantic segmentation.
-
-        N.B.segv11alid is the set of segval11 that does not intersect with SBDD.
-        Find it here: https://gist.github.com/shelhamer/edb330760338892d511e.
-
-        example
-
-        params = dict(sbdd_dir="/path/to/SBDD/dataset",
-            mean=(104.00698793, 116.66876762, 122.67891434),
-            split="valid")
-        """
-        # config
         params = eval(self.param_str)
         self.dir = params['dir']
         self.train = params['train']
@@ -323,7 +296,8 @@ class customDataLayerWithLabelScore(caffe.Layer):
         self.labels = np.zeros((num_lines, 1))
         self.labels_scores = np.ones((num_lines, 1)) #Default labels_scores are ones
 
-        if self.split != '/info/val_filelist':
+        is_training = False
+        if not self.split.__contains__('val'):
             is_training = True
             print "Is training: Will read labels scores."
 

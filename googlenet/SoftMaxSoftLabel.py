@@ -22,12 +22,18 @@ class SoftmaxSoftLabel(caffe.Layer):
         # loss output is scalar
         top[0].reshape(1)
 
+
+# TODO PROBLEM HERE; getting exp_scores of 0 which crash in the probs. Problem is because of code or because of net?
     def forward(self, bottom, top):
         labels_scores = bottom[2].data
-        scores = bottom[0].data
+        scores = bottom[0].data # .astype(np.float128)
         #normalizing to avoid instability
-        scores -= np.max(scores)
+        #scores -= np.max(scores) # Care, should I normalize this for every img or for the whole batch?
+        # for s in range(0,len(scores)):
+        #     scores[s,:] -= np.max(scores[s,:])
         exp_scores = np.exp(scores)
+        if exp_scores.min() == 0:
+            print "WARNING, Exp Score is 0"
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
         logprob = -np.log(probs)
         data_loss = np.sum(np.sum(labels_scores*logprob,axis=1))/bottom[0].num

@@ -152,7 +152,7 @@ for s in sources:
 
     for i,line in enumerate(data_file):
 
-        if i == 40: break
+        #if i == 40: break
         filename = line.split(' ')[0].replace(s,s+'_json')
         idx = int(line.split(' ')[1])
 
