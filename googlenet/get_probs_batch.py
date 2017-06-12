@@ -11,7 +11,7 @@ caffe.set_mode_gpu()
 test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
 
 #Model name
-model = 'WebVision_Inception_LDAfiltering_500_80000chunck_iter_320000'
+model = 'WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000'
 
 #Output file
 output_file_dir = '../../../datasets/WebVision/results/classification/' + model
