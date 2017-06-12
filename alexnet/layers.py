@@ -36,40 +36,39 @@ class SoftmaxSoftLabel(caffe.Layer):
         labels_scores = bottom[2].data
         labels = bottom[1].data
         scores = bottom[0].data
-        print "Scores MAX: " + str(scores.max())
-        print "Scores MIN: " + str(scores.max())
 
         #normalizing to avoid instability
-        # scores -= np.max(scores) # Care, should I normalize this for every img or for the whole batch?
-        for s in range(0,len(scores)):
-            scores[s,:] -= np.max(scores[s,:])
+        scores -= np.max(scores) # Care, should I normalize this for every img or for the whole batch?
         exp_scores = np.exp(scores)
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
-        #correct_logprobs = -np.log(probs[range(bottom[0].num), np.array(bottom[1].data, dtype=np.uint16)])
+
+        # correct_logprobs = -np.log(probs[range(bottom[0].num), np.array(bottom[1].data, dtype=np.uint16)])
         correct_logprobs = np.zeros([bottom[0].num,1])
-        for c,p in enumerate(probs):
-            correct_logprobs[c] = -np.log(p[int(labels[c])])
+        for r in range(bottom[0].num):
+            correct_logprobs[r] = probs[r,int(labels[r])] * labels_scores[r]
+
+        correct_logprobs = -np.log(correct_logprobs)
         data_loss = np.sum(correct_logprobs) / bottom[0].num
 
         self.diff[...] = probs
         top[0].data[...] = data_loss
 
+
     def backward(self, top, propagate_down, bottom):
         delta = self.diff
         labels = bottom[1].data
         labels_scores = bottom[2].data
-        out = np.zeros([bottom[0].num, 1])
 
         for i in range(2):
             if not propagate_down[i]:
                 continue
             if i == 0:
-                #delta[range(bottom[0].num), np.array(bottom[1].data, dtype=np.uint16)] -= 1
-                for c, p in enumerate(delta):
-                    out[c] = -np.log(p[int(labels[c])])
+                for r in range(bottom[0].num):
+                    delta[r,int(labels[r])]-= 1 * labels_scores[r]
 
-            bottom[i].diff[...] = out / bottom[i].num
-            print bottom[i].diff[...]
+                #delta[range(bottom[0].num), np.array(labels, dtype=np.uint16)] -= 1
+
+            bottom[i].diff[...] = delta / bottom[0].num
 
 
 

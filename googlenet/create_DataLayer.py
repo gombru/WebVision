@@ -8,10 +8,10 @@ TODO: Check how Caffe interacts with the class of the created layer
 import caffe
 from caffe import layers as L
 
-split_train = '/lda_gt/train_filteredbyLDA_500_chunck80000'
+split_train = '/lda_gt/val_filelist'
 split_val = '/info/val_filelist'
 num_labels = 1000
-batch_size = 100 #AlexNet 100, VGG 40
+batch_size = 150 #AlexNet 100, VGG 40
 resize = False
 resize_w = 256
 resize_h = 256
@@ -45,10 +45,10 @@ def build_net(split, num_classes, batch_size, resize, resize_w, resize_h, crop_w
     pydata_params['num_classes'] = num_classes
 
 
-    pylayer = 'customDataLayer'
+    pylayer = 'customDataLayerWithLabelScore'
 
-    n.data, n.label = L.Python(module='layers', layer=pylayer,
-                                              ntop=2, param_str=str(pydata_params))
+    n.data, n.label, n.label_score = L.Python(module='layers', layer=pylayer,
+                                              ntop=3, param_str=str(pydata_params))
     with open('prototxt/data_layer.prototxt', 'w') as f:
             f.write(str(n.to_proto()))
 

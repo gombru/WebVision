@@ -7,9 +7,9 @@ import caffe
 import numpy as np
 from pylab import zeros, arange, subplots, plt, savefig
 
-training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck' # name to save the training plots
+training_id = 'WebVision_Inception_LDAscored_500_80000chunck' # name to save the training plots
 solver_path = 'prototxt/solver_multiGPU.prototxt' # solver proto definition
-snapshot = '../../../datasets/WebVision/models/CNN/WebVision_Inception_LDAfiltering_500_80000chunck_iter_200000.caffemodel' # snapshot to restore (only weights initialzation)
+snapshot = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.caffemodel' # snapshot to restore (only weights initialzation)
 #snapshot = 0
 gpus = [0,1,2,3] # list of device ids # last GPU requires por mem (9000-5000)
 timing = False # show timing info for compute and communications

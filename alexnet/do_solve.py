@@ -25,7 +25,7 @@ def do_solve(niter, solvers, disp_interval, test_interval, test_iters):
     ax2.set_autoscaley_on(False)
     ax2.set_ylim([0, 1])
 
-    blobs = ('acc','acc')
+    blobs = ('loss','acc')
     loss, acc = ({name: np.zeros(niter) for name, _ in solvers}
                  for _ in blobs)
 

@@ -49,13 +49,13 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
     ax2 = ax1.twinx()
     ax1.set_xlabel('iteration')
     ax1.set_ylabel('train loss C (r), val loss C (y)')
-    ax2.set_ylabel('train TOP1 (b), val TOP1 (g), train TOP-5 (2) (c)')
+    ax2.set_ylabel('train TOP1 (b), val TOP1 (g)')#, train TOP-5 (2) (c)')
     ax2.set_autoscaley_on(False)
     ax2.set_ylim([0, 1])
 
     lossC = np.zeros(maxIter)
     acc1 = np.zeros(maxIter)
-    acc5 = np.zeros(maxIter)
+    #acc5 = np.zeros(maxIter)
 
 
     #RUN TRAINING
@@ -69,7 +69,7 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
         if it % display == 0 or it + 1 == niter:
             lossC[it] = solver.net.blobs['loss3/loss3'].data.copy()
             acc1[it] = solver.net.blobs['loss3/top-1'].data.copy()
-            acc5[it] = solver.net.blobs['loss2/top-5'].data.copy()
+            #acc5[it] = solver.net.blobs['loss2/top-5'].data.copy()
 
             loss_disp = 'loss3C= ' + str(lossC[it]) +  '  top-1= ' + str(acc1[it])
 
@@ -77,11 +77,11 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
 
             train_loss_C[it / display] = lossC[it]
             train_top1[it / display] = acc1[it]
-            train_top5[it / display] = acc5[it]
+            #train_top5[it / display] = acc5[it]
 
             ax1.plot(it_axes[0:it / display], train_loss_C[0:it / display], 'r')
             ax2.plot(it_axes[0:it / display], train_top1[0:it / display], 'b')
-            ax2.plot(it_axes[0:it / display], train_top5[0:it / display], 'c')
+            #ax2.plot(it_axes[0:it / display], train_top5[0:it / display], 'c')
 
             ax1.set_ylim([0, 10])
             plt.title(training_id)

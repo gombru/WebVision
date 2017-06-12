@@ -297,9 +297,9 @@ class customDataLayerWithLabelScore(caffe.Layer):
         self.labels_scores = np.ones((num_lines, 1), dtype="float32") #Default labels_scores are ones
 
         is_training = False
-        # if not self.split.__contains__('val'):
-        #     is_training = True
-        #     print "Is training: Will read labels scores."
+        if not self.split.__contains__('val'):
+            is_training = True
+            print "Is training: Will read labels scores."
 
         print "Reading labels file: " + '{}/{}.txt'.format(self.dir, self.split)
         with open(split_f, 'r') as annsfile:

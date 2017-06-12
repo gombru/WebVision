@@ -18,7 +18,7 @@ assert os.path.exists(weights)
 split_train = '/info/train_filelist_mini'
 split_val = '/info/val_filelist'
 num_labels = 1000
-batch_size = 40 #100
+batch_size = 1 #100
 resize_w = 300
 resize_h = 300
 crop_w = 227 #227 AlexNet, 224 VGG16
@@ -31,7 +31,7 @@ HSV_jitter = 0 #0.1,0.05 #Saturation and value will be multiplied by 2 different
 
 
 # #Create the net architecture
-# net_train = build_AlexNet(split_train, num_labels, batch_size, resize_w, resize_h, crop_w, crop_h, crop_margin, mirror, rotate, HSV_prob, HSV_jitter, train=True)
+#net_train = build_AlexNet(split_train, num_labels, batch_size, resize_w, resize_h, crop_w, crop_h, crop_margin, mirror, rotate, HSV_prob, HSV_jitter, train=True)
 # #Prepare validation net
 # net_val = build_AlexNet(split_val, num_labels, batch_size, crop_w, crop_h, crop_h, crop_h, 0, 0, 0, 0, 0, train=False)
 
@@ -41,7 +41,7 @@ display_interval = 1
 
 #number of validating images  is  test_iters * batchSize
 test_interval = 400 #200
-test_iters = 20
+test_iters = 1
 
 # #Set solver configuration
 # solver_filename = create_solver(net_train, net_val, base_lr=base_lr)

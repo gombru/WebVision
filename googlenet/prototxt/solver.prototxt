@@ -1,5 +1,5 @@
-train_net: "prototxt/train_softLabel.prototxt"
-test_net: "prototxt/val_softLabel.prototxt"
+train_net: "prototxt/train_frozen_softlabel.prototxt"
+test_net: "prototxt/val_frozen_softlabel.prototxt"
 test_iter: 1
 test_interval: 10000000
 display: 500
