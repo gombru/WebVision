@@ -90,7 +90,7 @@ def plot(solver, nccl):
     ax2 = ax1.twinx()
     ax1.set_xlabel('iteration')
     ax1.set_ylabel('train loss C (r), val loss C (y)')
-    ax2.set_ylabel('train TOP1 (b), val TOP1 (g), train TOP-5 (2) (c)')
+    ax2.set_ylabel('train TOP1 (b), val TOP1 (g)')#, train TOP-5 (2) (c)')
     ax2.set_autoscaley_on(False)
     ax2.set_ylim([0, 1])
 
@@ -105,7 +105,7 @@ def plot(solver, nccl):
 
             lossC[solver.iter] = solver.net.blobs['loss3/loss3'].data.copy()
             acc1[solver.iter] = solver.net.blobs['loss3/top-1'].data.copy()
-            acc5[solver.iter] = solver.net.blobs['loss2/top-5'].data.copy()
+            #acc5[solver.iter] = solver.net.blobs['loss2/top-5'].data.copy()
 
             loss_disp = 'loss3C= ' + str(lossC[solver.iter]) +  '  top-1= ' + str(acc1[solver.iter])
 

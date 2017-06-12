@@ -8,6 +8,72 @@ import time
 import random
 
 
+
+class SoftmaxSoftLabel(caffe.Layer):
+    """
+    Compute the Softmax Loss in the same manner but consider soft labels
+    as the ground truth
+    """
+    def setup(self, bottom, top):
+        # check input pair
+        if len(bottom) != 3:
+            raise Exception("Need three inputs to compute distance (infered,labels and reliability).")
+
+    def reshape(self, bottom, top):
+        # check input dimensions match
+        if bottom[0].num != bottom[1].num:
+            raise Exception("Infered scores and labels must have the same dimension.")
+        if bottom[0].num != bottom[2].num:
+            raise Exception("Reliability scores wrong dimension.")
+        # difference is shape of inputs
+        self.diff = np.zeros_like(bottom[0].data, dtype=np.float32)
+        # loss output is scalar
+        top[0].reshape(1)
+
+
+    # TODO PROBLEM HERE; getting exp_scores of 0 which crash in the probs. Problem is because of code or because of net?
+    def forward(self, bottom, top):
+        labels_scores = bottom[2].data
+        labels = bottom[1].data
+        scores = bottom[0].data
+        print "Scores MAX: " + str(scores.max())
+        print "Scores MIN: " + str(scores.max())
+
+        #normalizing to avoid instability
+        # scores -= np.max(scores) # Care, should I normalize this for every img or for the whole batch?
+        for s in range(0,len(scores)):
+            scores[s,:] -= np.max(scores[s,:])
+        exp_scores = np.exp(scores)
+        probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
+        #correct_logprobs = -np.log(probs[range(bottom[0].num), np.array(bottom[1].data, dtype=np.uint16)])
+        correct_logprobs = np.zeros([bottom[0].num,1])
+        for c,p in enumerate(probs):
+            correct_logprobs[c] = -np.log(p[int(labels[c])])
+        data_loss = np.sum(correct_logprobs) / bottom[0].num
+
+        self.diff[...] = probs
+        top[0].data[...] = data_loss
+
+    def backward(self, top, propagate_down, bottom):
+        delta = self.diff
+        labels = bottom[1].data
+        labels_scores = bottom[2].data
+        out = np.zeros([bottom[0].num, 1])
+
+        for i in range(2):
+            if not propagate_down[i]:
+                continue
+            if i == 0:
+                #delta[range(bottom[0].num), np.array(bottom[1].data, dtype=np.uint16)] -= 1
+                for c, p in enumerate(delta):
+                    out[c] = -np.log(p[int(labels[c])])
+
+            bottom[i].diff[...] = out / bottom[i].num
+            print bottom[i].diff[...]
+
+
+
+
 class customDataLayer(caffe.Layer):
     """
     Load (input image, label image) pairs from the SBDD extended labeling
@@ -198,7 +264,8 @@ class customDataLayer(caffe.Layer):
             if(self.rotate is not 0):
                 im = self.rotate_image(im)
 
-            if self.crop_h is not self.resize_h or self.crop_h is not self.resize_h:
+            width, height = im.size
+            if self.crop_h is not height or self.crop_h is not width:
                 im = self.random_crop(im)
 
             if(self.mirror and random.randint(0, 1) == 1):
@@ -414,7 +481,8 @@ class customDataLayerWithLabelScore(caffe.Layer):
             if (self.rotate is not 0):
                 im = self.rotate_image(im)
 
-            if self.crop_h is not self.resize_h or self.crop_h is not self.resize_h:
+            width, height = im.size
+            if self.crop_h is not height or self.crop_h is not width:
                 im = self.random_crop(im)
 
             if (self.mirror and random.randint(0, 1) == 1):
@@ -459,4 +527,3 @@ class customDataLayerWithLabelScore(caffe.Layer):
         im = Image.fromarray(data, 'HSV')
         im = im.convert('RGB')
         return im
-

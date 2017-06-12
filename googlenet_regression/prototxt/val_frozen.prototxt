@@ -2,25 +2,29 @@ layer {
   name: "data"
   type: "Python"
   top: "data"
+  top: "labelRegression"
   top: "label"
-  top: "label_score"
   python_param {
-    module: "layers"
-    layer: "customDataLayerWithLabelScore"
-    param_str: "{\'rotate\': 0, \'resize_h\': 256, \'HSV_jitter\': 0, \'dir\': \'../../../datasets/WebVision\', \'batch_size\': 8, \'crop_h\': 224, \'crop_w\': 224, \'train\': True, \'split\': \'/info/train_filelist_mini\', \'mirror\': True, \'num_classes\': 1000, \'resize_w\': 256, \'HSV_prob\': 0, \'crop_margin\': 2, \'resize\': False, \'mean\': (104.00699, 116.66877, 122.67892)}"
+    module: "layers_2heads"
+    layer: "twoHeadsDataLayer"
+    param_str: "{\'rotate\': 0, \'resize_h\': 256, \'HSV_jitter\': 0, \'dir\': \'../../../datasets/WebVision\', \'batch_size\': 100, \'crop_h\': 224, \'crop_w\': 224, \'train\': True, \'split\': \'/lda_gt/myval_500_chunck80000\', \'mirror\': True, \'num_classes\': 500, \'resize_w\': 256, \'HSV_prob\': 0, \'crop_margin\': 2, \'resize\': False, \'mean\': (104.00699, 116.66877, 122.67892)}"
   }
 }
+
+
+
+
 layer {
   name: "conv1/7x7_s2"
   type: "Convolution"
   bottom: "data"
   top: "conv1/7x7_s2"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -71,11 +75,11 @@ layer {
   bottom: "pool1/norm1"
   top: "conv2/3x3_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -102,11 +106,11 @@ layer {
   bottom: "conv2/3x3_reduce"
   top: "conv2/3x3"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -156,11 +160,11 @@ layer {
   bottom: "pool2/3x3_s2"
   top: "inception_3a/1x1"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -187,11 +191,11 @@ layer {
   bottom: "pool2/3x3_s2"
   top: "inception_3a/3x3_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -218,11 +222,11 @@ layer {
   bottom: "inception_3a/3x3_reduce"
   top: "inception_3a/3x3"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -250,11 +254,11 @@ layer {
   bottom: "pool2/3x3_s2"
   top: "inception_3a/5x5_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -281,11 +285,11 @@ layer {
   bottom: "inception_3a/5x5_reduce"
   top: "inception_3a/5x5"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -325,11 +329,11 @@ layer {
   bottom: "inception_3a/pool"
   top: "inception_3a/pool_proj"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -365,11 +369,11 @@ layer {
   bottom: "inception_3a/output"
   top: "inception_3b/1x1"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -396,11 +400,11 @@ layer {
   bottom: "inception_3a/output"
   top: "inception_3b/3x3_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -427,11 +431,11 @@ layer {
   bottom: "inception_3b/3x3_reduce"
   top: "inception_3b/3x3"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -459,11 +463,11 @@ layer {
   bottom: "inception_3a/output"
   top: "inception_3b/5x5_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -490,11 +494,11 @@ layer {
   bottom: "inception_3b/5x5_reduce"
   top: "inception_3b/5x5"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -534,11 +538,11 @@ layer {
   bottom: "inception_3b/pool"
   top: "inception_3b/pool_proj"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -585,11 +589,11 @@ layer {
   bottom: "pool3/3x3_s2"
   top: "inception_4a/1x1"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -616,11 +620,11 @@ layer {
   bottom: "pool3/3x3_s2"
   top: "inception_4a/3x3_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -647,11 +651,11 @@ layer {
   bottom: "inception_4a/3x3_reduce"
   top: "inception_4a/3x3"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -679,11 +683,11 @@ layer {
   bottom: "pool3/3x3_s2"
   top: "inception_4a/5x5_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -710,11 +714,11 @@ layer {
   bottom: "inception_4a/5x5_reduce"
   top: "inception_4a/5x5"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -754,11 +758,11 @@ layer {
   bottom: "inception_4a/pool"
   top: "inception_4a/pool_proj"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -788,157 +792,18 @@ layer {
   bottom: "inception_4a/pool_proj"
   top: "inception_4a/output"
 }
-layer {
-  name: "loss1/ave_pool"
-  type: "Pooling"
-  bottom: "inception_4a/output"
-  top: "loss1/ave_pool"
-  pooling_param {
-    pool: AVE
-    kernel_size: 5
-    stride: 3
-  }
-}
-layer {
-  name: "loss1/conv"
-  type: "Convolution"
-  bottom: "loss1/ave_pool"
-  top: "loss1/conv"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 128
-    kernel_size: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
-  }
-}
-layer {
-  name: "loss1/relu_conv"
-  type: "ReLU"
-  bottom: "loss1/conv"
-  top: "loss1/conv"
-}
-layer {
-  name: "loss1/fc"
-  type: "InnerProduct"
-  bottom: "loss1/conv"
-  top: "loss1/fc"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  inner_product_param {
-    num_output: 1024
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
-  }
-}
-layer {
-  name: "loss1/relu_fc"
-  type: "ReLU"
-  bottom: "loss1/fc"
-  top: "loss1/fc"
-}
-layer {
-  name: "loss1/drop_fc"
-  type: "Dropout"
-  bottom: "loss1/fc"
-  top: "loss1/fc"
-  dropout_param {
-    dropout_ratio: 0.7
-  }
-}
-layer {
-  name: "loss1/classifier"
-  type: "InnerProduct"
-  bottom: "loss1/fc"
-  top: "loss1/classifier"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  inner_product_param {
-    num_output: 1000
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0
-    }
-  }
-}
-layer {
-  type: 'Python'
-  name: 'loss1/loss'
-  top: 'loss1/loss1'
-  bottom: 'loss1/classifier'
-  bottom: 'label'
-  bottom: 'label_score'
-  python_param {
-    # the module name -- usually the filename -- that needs to be in $PYTHONPATH
-    module: 'SoftMaxSoftLabel'
-    # the layer name -- the class name in the module
-    layer: 'SoftmaxSoftLabel'
-  }
-  # set loss weight so Caffe knows this is a loss layer.
-  # since PythonLayer inherits directly from Layer, this isn't automatically
-  # known to Caffe
-  loss_weight: 0.3
-}
-layer {
-  name: "loss1/top-1"
-  type: "Accuracy"
-  bottom: "loss1/classifier"
-  bottom: "label"
-  top: "loss1/top-1"
-}
-layer {
-  name: "loss1/top-5"
-  type: "Accuracy"
-  bottom: "loss1/classifier"
-  bottom: "label"
-  top: "loss1/top-5"
-  accuracy_param {
-    top_k: 5
-  }
-}
+
 layer {
   name: "inception_4b/1x1"
   type: "Convolution"
   bottom: "inception_4a/output"
   top: "inception_4b/1x1"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -965,11 +830,11 @@ layer {
   bottom: "inception_4a/output"
   top: "inception_4b/3x3_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -996,11 +861,11 @@ layer {
   bottom: "inception_4b/3x3_reduce"
   top: "inception_4b/3x3"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1028,11 +893,11 @@ layer {
   bottom: "inception_4a/output"
   top: "inception_4b/5x5_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1059,11 +924,11 @@ layer {
   bottom: "inception_4b/5x5_reduce"
   top: "inception_4b/5x5"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1103,11 +968,11 @@ layer {
   bottom: "inception_4b/pool"
   top: "inception_4b/pool_proj"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1143,11 +1008,11 @@ layer {
   bottom: "inception_4b/output"
   top: "inception_4c/1x1"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1174,11 +1039,11 @@ layer {
   bottom: "inception_4b/output"
   top: "inception_4c/3x3_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1205,11 +1070,11 @@ layer {
   bottom: "inception_4c/3x3_reduce"
   top: "inception_4c/3x3"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1237,11 +1102,11 @@ layer {
   bottom: "inception_4b/output"
   top: "inception_4c/5x5_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1268,11 +1133,11 @@ layer {
   bottom: "inception_4c/5x5_reduce"
   top: "inception_4c/5x5"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1312,11 +1177,11 @@ layer {
   bottom: "inception_4c/pool"
   top: "inception_4c/pool_proj"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1352,11 +1217,11 @@ layer {
   bottom: "inception_4c/output"
   top: "inception_4d/1x1"
   param {
-    lr_mult: 1
+    lr_mult: 0
     decay_mult: 1
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1383,11 +1248,11 @@ layer {
   bottom: "inception_4c/output"
   top: "inception_4d/3x3_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1414,11 +1279,11 @@ layer {
   bottom: "inception_4d/3x3_reduce"
   top: "inception_4d/3x3"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1446,11 +1311,11 @@ layer {
   bottom: "inception_4c/output"
   top: "inception_4d/5x5_reduce"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1477,11 +1342,11 @@ layer {
   bottom: "inception_4d/5x5_reduce"
   top: "inception_4d/5x5"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1521,11 +1386,11 @@ layer {
   bottom: "inception_4d/pool"
   top: "inception_4d/pool_proj"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 0
+    decay_mult: 0
   }
   param {
-    lr_mult: 2
+    lr_mult: 0
     decay_mult: 0
   }
   convolution_param {
@@ -1540,6 +1405,11 @@ layer {
     }
   }
 }
+
+
+
+
+
 layer {
   name: "inception_4d/relu_pool_proj"
   type: "ReLU"
@@ -1555,146 +1425,7 @@ layer {
   bottom: "inception_4d/pool_proj"
   top: "inception_4d/output"
 }
-layer {
-  name: "loss2/ave_pool"
-  type: "Pooling"
-  bottom: "inception_4d/output"
-  top: "loss2/ave_pool"
-  pooling_param {
-    pool: AVE
-    kernel_size: 5
-    stride: 3
-  }
-}
-layer {
-  name: "loss2/conv"
-  type: "Convolution"
-  bottom: "loss2/ave_pool"
-  top: "loss2/conv"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 128
-    kernel_size: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
-  }
-}
-layer {
-  name: "loss2/relu_conv"
-  type: "ReLU"
-  bottom: "loss2/conv"
-  top: "loss2/conv"
-}
-layer {
-  name: "loss2/fc"
-  type: "InnerProduct"
-  bottom: "loss2/conv"
-  top: "loss2/fc"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  inner_product_param {
-    num_output: 1024
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
-  }
-}
-layer {
-  name: "loss2/relu_fc"
-  type: "ReLU"
-  bottom: "loss2/fc"
-  top: "loss2/fc"
-}
-layer {
-  name: "loss2/drop_fc"
-  type: "Dropout"
-  bottom: "loss2/fc"
-  top: "loss2/fc"
-  dropout_param {
-    dropout_ratio: 0.7
-  }
-}
-layer {
-  name: "loss2/classifier"
-  type: "InnerProduct"
-  bottom: "loss2/fc"
-  top: "loss2/classifier"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  inner_product_param {
-    num_output: 1000
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0
-    }
-  }
-}
-layer {
-  type: 'Python'
-  name: 'loss2/loss'
-  top: 'loss2/loss1'
-  bottom: 'loss2/classifier'
-  bottom: 'label'
-  bottom: 'label_score'
-  python_param {
-    # the module name -- usually the filename -- that needs to be in $PYTHONPATH
-    module: 'SoftMaxSoftLabel'
-    # the layer name -- the class name in the module
-    layer: 'SoftmaxSoftLabel'
-  }
-  # set loss weight so Caffe knows this is a loss layer.
-  # since PythonLayer inherits directly from Layer, this isn't automatically
-  # known to Caffe
-  loss_weight: 0.3
-}
-layer {
-  name: "loss2/top-1"
-  type: "Accuracy"
-  bottom: "loss2/classifier"
-  bottom: "label"
-  top: "loss2/top-1"
-}
-layer {
-  name: "loss2/top-5"
-  type: "Accuracy"
-  bottom: "loss2/classifier"
-  bottom: "label"
-  top: "loss2/top-5"
-  accuracy_param {
-    top_k: 5
-  }
-}
+
 layer {
   name: "inception_4e/1x1"
   type: "Convolution"
@@ -2378,22 +2109,12 @@ layer {
   }
 }
 layer {
-  type: 'Python'
-  name: 'loss3/loss3'
-  top: 'loss3/loss3'
-  bottom: 'loss3/classifier'
-  bottom: 'label'
-  bottom: 'label_score'
-  python_param {
-    # the module name -- usually the filename -- that needs to be in $PYTHONPATH
-    module: 'SoftMaxSoftLabel'
-    # the layer name -- the class name in the module
-    layer: 'SoftmaxSoftLabel'
-  }
-  # set loss weight so Caffe knows this is a loss layer.
-  # since PythonLayer inherits directly from Layer, this isn't automatically
-  # known to Caffe
-  loss_weight: 1
+  name: "loss3/loss3"
+  type: "SoftmaxWithLoss"
+  bottom: "loss3/classifier"
+  bottom: "label"
+  top: "loss3/loss3"
+  loss_weight: 0.75
 }
 layer {
   name: "loss3/top-1"
@@ -2402,13 +2123,38 @@ layer {
   bottom: "label"
   top: "loss3/top-1"
 }
+
+# Regression head 3
+
 layer {
-  name: "loss3/top-5"
-  type: "Accuracy"
-  bottom: "loss3/classifier"
-  bottom: "label"
-  top: "loss3/top-5"
-  accuracy_param {
-    top_k: 5
+  name: "loss3/classifier/R"
+  type: "InnerProduct"
+  bottom: "pool5/7x7_s1"
+  top: "loss3/classifier/R"
+  param {
+    lr_mult: 1
+    decay_mult: 1
   }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  inner_product_param {
+    num_output: 500
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "loss3/loss3/R"
+  type: "SigmoidCrossEntropyLoss"
+  bottom: "loss3/classifier/R"
+  bottom: "labelRegression"
+  top: "loss3/loss3/R"
+  loss_weight: 0.25
 }

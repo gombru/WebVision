@@ -7,9 +7,9 @@ import caffe
 import numpy as np
 from pylab import zeros, arange, subplots, plt, savefig
 
-training_id = 'WebVision_Inception_500_80000chunck' # name to save the training plots
+training_id = 'WebVision_Inception_finetune_withregressionhead03' # name to save the training plots
 solver_path = 'prototxt/solver_multiGPU.prototxt' # solver proto definition
-snapshot = '../../../datasets/WebVision/models/CNNRegression/WebVision_Inception_500_80000chunck_iter_60000.caffemodel' # snapshot to restore (only weights initialzation)
+snapshot = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.caffemodel' # snapshot to restore (only weights initialzation)
 #snapshot = 0
 gpus = [0,1,2,3] # list of device ids # last GPU requires por mem (9000-5000)
 timing = False # show timing info for compute and communications
@@ -91,7 +91,7 @@ def plot(solver, nccl):
     _, ax1 = subplots()
     ax2 = ax1.twinx()
     ax1.set_xlabel('iteration')
-    ax1.set_ylabel('train loss C (r), val loss C (y),m train loss R (m), val loss R (k)')
+    ax1.set_ylabel('train loss C (r), val loss C (y), train loss R (m), val loss R (k)')
     ax2.set_ylabel('train TOP1 (b), val TOP1 (g), train TOP-5 (2) (c)')
     ax2.set_autoscaley_on(False)
     ax2.set_ylim([0, 1])

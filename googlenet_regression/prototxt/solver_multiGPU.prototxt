@@ -1,5 +1,5 @@
-train_net: "prototxt/train.prototxt"
-test_net: "prototxt/val.prototxt"
+train_net: "prototxt/train_frozen.prototxt"
+test_net: "prototxt/val_frozen.prototxt"
 test_iter: 1
 test_interval: 10000000
 base_lr: 0.01
@@ -12,6 +12,6 @@ max_iter: 2400000
 momentum: 0.9
 weight_decay: 0.0002
 snapshot: 20000
-snapshot_prefix: "../../../datasets/WebVision/models/CNNRegression/WebVision_Inception_500_80000chunck"
+snapshot_prefix: "../../../datasets/WebVision/models/CNNRegression/WebVision_Inception_finetune_withregressionhead03"
 solver_mode: GPU
 type: "SGD"

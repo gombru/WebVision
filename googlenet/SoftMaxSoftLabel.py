@@ -27,8 +27,11 @@ class SoftmaxSoftLabel(caffe.Layer):
     def forward(self, bottom, top):
         labels_scores = bottom[2].data
         scores = bottom[0].data # .astype(np.float128)
+        print "Scores MAX: " + str(scores.max())
+        print "Scores MIN: " + str(scores.max())
+
         #normalizing to avoid instability
-        #scores -= np.max(scores) # Care, should I normalize this for every img or for the whole batch?
+        scores -= np.max(scores) # Care, should I normalize this for every img or for the whole batch?
         # for s in range(0,len(scores)):
         #     scores[s,:] -= np.max(scores[s,:])
         exp_scores = np.exp(scores)
