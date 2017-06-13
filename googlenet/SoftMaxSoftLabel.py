@@ -54,6 +54,8 @@ class SoftmaxSoftLabel(caffe.Layer):
                 continue
             if i == 0:
                 for r in range(bottom[0].num):
-                    delta[r,int(labels[r])]-= 1 * labels_scores[r]
+                    delta[r, int(labels[r])] -= 1
+                    delta[r,:] *= labels_scores[r]
+
 
                 bottom[i].diff[...] = delta / bottom[0].num
