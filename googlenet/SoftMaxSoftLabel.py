@@ -34,12 +34,10 @@ class SoftmaxSoftLabel(caffe.Layer):
         exp_scores = np.exp(scores)
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
 
-        # correct_logprobs = -np.log(probs[range(bottom[0].num), np.array(bottom[1].data, dtype=np.uint16)])
         correct_logprobs = np.zeros([bottom[0].num,1])
         for r in range(bottom[0].num):
-            correct_logprobs[r] = probs[r,int(labels[r])] * labels_scores[r]
+            correct_logprobs[r] = -np.log(probs[r,int(labels[r])]) * labels_scores[r]
 
-        correct_logprobs = -np.log(correct_logprobs)
         data_loss = np.sum(correct_logprobs) / bottom[0].num
 
         self.diff[...] = probs
@@ -58,6 +56,4 @@ class SoftmaxSoftLabel(caffe.Layer):
                 for r in range(bottom[0].num):
                     delta[r,int(labels[r])]-= 1 * labels_scores[r]
 
-                #delta[range(bottom[0].num), np.array(labels, dtype=np.uint16)] -= 1
-
-            bottom[i].diff[...] = delta / bottom[0].num
+                bottom[i].diff[...] = delta / bottom[0].num

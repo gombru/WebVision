@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f553e799-7e6a-4909-b8d1-5ef39f37e388" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/WebVision_Inception_LDAfiltered_500_80000chunck360000.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen.prototxt" afterPath="$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen.prototxt" afterPath="$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen.prototxt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" afterPath="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/train.py" afterPath="$PROJECT_DIR$/googlenet/train.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,71 +22,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="train_multiGPU.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/train_multiGPU.py">
+      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/googlenet/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+            <state relative-caret-position="270">
+              <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="train_frozen_softlabel.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train_frozen_softlabel.prototxt">
+      <file leaf-file-name="SoftMaxSoftLabel.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37944">
-              <caret line="2108" column="3" lean-forward="false" selection-start-line="2108" selection-start-column="3" selection-end-line="2108" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="solver_multiGPU.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train_frozen.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="2158" column="1" lean-forward="false" selection-start-line="2158" selection-start-column="1" selection-end-line="2158" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="val_frozen.prototxt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="2130" column="22" lean-forward="true" selection-start-line="2130" selection-start-column="22" selection-end-line="2130" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_mean_class_lda_topic_distribution.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lda/get_mean_class_lda_topic_distribution.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="infer_lda_filtering_outliers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lda/infer_lda_filtering_outliers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="144" column="59" lean-forward="false" selection-start-line="144" selection-start-column="59" selection-end-line="144" selection-end-column="59" />
+            <state relative-caret-position="271">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -137,13 +86,11 @@
         <option value="$PROJECT_DIR$/alexnet/train.prototxt" />
         <option value="$PROJECT_DIR$/alexnet/do_solve.py" />
         <option value="$PROJECT_DIR$/alexnet/layers.py" />
-        <option value="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" />
         <option value="$PROJECT_DIR$/googlenet/layers.py" />
         <option value="$PROJECT_DIR$/googlenet/create_DataLayer.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/train_frozen.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/val_frozen.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet/train.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/val_frozen_softlabel.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/train_frozen_softlabel.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/train_multiGPU.py" />
@@ -151,6 +98,8 @@
         <option value="$PROJECT_DIR$/lda/infer_lda_filtering_outliers.py" />
         <option value="$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen.prototxt" />
         <option value="$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen.prototxt" />
+        <option value="$PROJECT_DIR$/googlenet/train.py" />
+        <option value="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" />
       </list>
     </option>
   </component>
@@ -186,38 +135,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WebVision" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebVision" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebVision" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="googlenet_regression" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebVision" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebVision" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="googlenet_regression" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prototxt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -268,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.infer_lda_filtering_outliers">
+  <component name="RunManager" selected="Python.train">
     <configuration default="false" name="train (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -467,8 +384,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.infer_lda_filtering_outliers" />
-        <item index="1" class="java.lang.String" itemvalue="Python.train" />
+        <item index="0" class="java.lang.String" itemvalue="Python.train" />
+        <item index="1" class="java.lang.String" itemvalue="Python.infer_lda_filtering_outliers" />
         <item index="2" class="java.lang.String" itemvalue="Python.create_DataLayer" />
         <item index="3" class="java.lang.String" itemvalue="Python.train (1)" />
         <item index="4" class="java.lang.String" itemvalue="Python.layers" />
@@ -537,10 +454,10 @@
     <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2446281" sideWeight="0.49127182" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16749312" sideWeight="0.49127182" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22129436" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28914404" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -706,13 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/solver_multiGPU.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/train.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13665">
@@ -785,20 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="65" lean-forward="false" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="249" column="35" lean-forward="false" selection-start-line="249" selection-start-column="6" selection-end-line="249" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/data_layer.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -850,38 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/train_multiGPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="122" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="78" column="47" lean-forward="true" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/train_multiGPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lda/get_mean_class_lda_topic_distribution.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -898,14 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train_frozen_softlabel.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37944">
-          <caret line="2108" column="3" lean-forward="false" selection-start-line="2108" selection-start-column="3" selection-end-line="2108" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="662">
@@ -916,8 +772,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen.prototxt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
+        <state relative-caret-position="374">
           <caret line="2130" column="22" lean-forward="true" selection-start-line="2130" selection-start-column="22" selection-end-line="2130" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/solver_multiGPU.prototxt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet_regression/train_multiGPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="11" column="114" lean-forward="false" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/train_multiGPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train_frozen_softlabel.prototxt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37944">
+          <caret line="2108" column="3" lean-forward="false" selection-start-line="2108" selection-start-column="3" selection-end-line="2108" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3307">
+          <caret line="249" column="35" lean-forward="false" selection-start-line="249" selection-start-column="6" selection-end-line="249" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>

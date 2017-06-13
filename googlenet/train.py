@@ -83,7 +83,7 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
             ax2.plot(it_axes[0:it / display], train_top1[0:it / display], 'b')
             #ax2.plot(it_axes[0:it / display], train_top5[0:it / display], 'c')
 
-            ax1.set_ylim([0, 10])
+            #ax1.set_ylim([0, 10])
             plt.title(training_id)
             plt.ion()
             plt.grid(True)
@@ -110,7 +110,7 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
             ax1.plot(it_val_axes[0:it / test_interval], val_loss_C[0:it/ test_interval], 'y')
             ax2.plot(it_val_axes[0:it / test_interval], val_top1[0:it / test_interval], 'g')
 
-            ax1.set_ylim([0, 10])
+            #ax1.set_ylim([0, 10])
             plt.title(training_id)
             plt.ion()
             plt.grid(True)
