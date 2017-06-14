@@ -180,7 +180,7 @@ class twoHeadsDataLayer(caffe.Layer):
         """
         Load input image and preprocess for Caffe:
         - cast to float
-        - switch channels RGB -> BGR
+        - switch channels RGB ->  BGR
         - subtract mean
         - transpose to channel x height x width order
         """
