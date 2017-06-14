@@ -9,7 +9,7 @@ from pylab import zeros, arange, subplots, plt, savefig
 
 training_id = 'WebVision_Inception_LDAscored_500_80000chunck' # name to save the training plots
 solver_path = 'prototxt/solver_multiGPU.prototxt' # solver proto definition
-snapshot = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.caffemodel' # snapshot to restore (only weights initialzation)
+snapshot = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.solverstate' # snapshot to restore (only weights initialzation)
 #snapshot = 0
 gpus = [0,1,2,3] # list of device ids # last GPU requires por mem (9000-5000)
 timing = False # show timing info for compute and communications
@@ -173,8 +173,8 @@ def solve(proto, snapshot, gpus, uid, rank):
     solver = caffe.SGDSolver(proto)
     if snapshot and len(snapshot) != 0:
         print 'Loading snapshot from : ' + snapshot + '  to GPU: ' + str(rank)
-        #solver.restore(snapshot)
-        solver.net.copy_from(snapshot)
+        solver.restore(snapshot)
+        #solver.net.copy_from(snapshot)
     else:
         print "Training from scratch"
 

@@ -1,5 +1,5 @@
-train_net: "prototxt/train_lmdb.prototxt"
-test_net: "prototxt/val_lmdb.prototxt"
+train_net: "prototxt/train_frozen_softlabel.prototxt"
+test_net: "prototxt/val_frozen_softlabel.prototxt"
 test_iter: 1
 test_interval: 10000000
 display: 500
@@ -11,5 +11,5 @@ max_iter: 2400000
 momentum: 0.9
 weight_decay: 0.0002
 snapshot: 40000
-snapshot_prefix: "../../../datasets/WebVision/models/CNN/WebVision_Inception_LDAfiltering_500_80000chunck"
+snapshot_prefix: "../../../datasets/WebVision/models/CNN/WebVision_Inception_LDAscored_500_80000chunck"
 solver_mode: GPU

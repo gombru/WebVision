@@ -23,14 +23,13 @@ class SoftmaxSoftLabel(caffe.Layer):
         top[0].reshape(1)
 
 
-    # TODO PROBLEM HERE; getting exp_scores of 0 which crash in the probs. Problem is because of code or because of net?
     def forward(self, bottom, top):
         labels_scores = bottom[2].data
         labels = bottom[1].data
         scores = bottom[0].data
 
         #normalizing to avoid instability
-        scores -= np.max(scores) # Care, should I normalize this for every img or for the whole batch?
+        scores -= np.max(scores)
         exp_scores = np.exp(scores)
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
 

@@ -11,7 +11,7 @@ caffe.set_mode_gpu()
 
 training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck' # name to save the training plots
 
-weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_320000.caffemodel'
+weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.caffemodel'
 
 assert os.path.exists(weights)
 
