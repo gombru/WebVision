@@ -15,12 +15,12 @@ weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfilte
 
 assert os.path.exists(weights)
 
-display_interval = 1 #500
+display_interval = 5 #500
 niter = 100011100
 
 #number of validating images  is  test_iters * batchSize
-test_interval = 5000 #200
-test_iters = 100 #20
+test_interval = 1 #200
+test_iters = 10 #20
 solver_filename = 'prototxt/solver.prototxt'
 solver = caffe.get_solver(solver_filename)
 
@@ -95,6 +95,7 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
             loss_val_C = 0
             top1_val = 0
             for i in range(test_iters):
+                print i
                 solver.test_nets[0].forward()
                 loss_val_C += solver.test_nets[0].blobs['loss3/loss3'].data
                 top1_val += solver.test_nets[0].blobs['loss3/top-1'].data
@@ -102,7 +103,7 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
             loss_val_C /= test_iters
             top1_val /= test_iters
 
-            print("Val loss C: {:.3f}".format(loss_val_C))
+            print("Val loss C: {:.3f}".format(loss_val_C[0]))
 
             val_loss_C[it / test_interval - 1] = loss_val_C
             val_top1[it / test_interval - 1] = top1_val
