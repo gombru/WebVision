@@ -9,17 +9,17 @@ from pylab import zeros, arange, subplots, plt, savefig
 caffe.set_device(0)
 caffe.set_mode_gpu()
 
-training_id = 'WebVision_Inception_finetune_withregressionhead03' # name to save the training plots
+training_id = 'WebVision_Inception_finetune_withregressionhead025' # name to save the training plots
 weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.caffemodel'
 
 assert os.path.exists(weights)
 
-display_interval = 1 #500
+display_interval = 5 #500
 niter = 100011100
 
 #number of validating images  is  test_iters * batchSize
-test_interval = 5000 #200
-test_iters = 100 #20
+test_interval = 1 #200
+test_iters = 10 #20
 solver_filename = 'prototxt/solver.prototxt'
 solver = caffe.get_solver(solver_filename)
 
