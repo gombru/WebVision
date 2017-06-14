@@ -2156,5 +2156,5 @@ layer {
   bottom: "loss3/classifier/R"
   bottom: "labelRegression"
   top: "loss3/loss3/R"
-  loss_weight: 0.25
+  loss_weight: 0.001
 }

@@ -75,8 +75,8 @@ class twoHeadsDataLayer(caffe.Layer):
         # self.anns = open(split_f, 'r').read().splitlines()
 
         # get number of images
-        #num_lines = 10001
-        num_lines = sum(1 for line in open(split_f))
+        num_lines = 10001
+       # num_lines = sum(1 for line in open(split_f))
         print "Number of images: " + str(num_lines)
 
 
@@ -90,7 +90,7 @@ class twoHeadsDataLayer(caffe.Layer):
             for c,i in enumerate(annsfile):
             #for c,i in enumerate(self.anns):
                 
-                data = i.split(',')
+                data = i.split(' ')
 
                 #Load index
                 self.indices[c] = data[0]
@@ -101,11 +101,11 @@ class twoHeadsDataLayer(caffe.Layer):
                 self.labels[c] = int(data[1])
     
                 #Load regression labels
-                for l in range(0,self.num_classes):
-                    self.labelsRegression[c,l] = float(data[l+2])
+                # for l in range(0,self.num_classes):
+                #     self.labelsRegression[c,l] = float(data[l+2])
 
                 if c % 10000 == 0: print "Read " + str(c) + " / " + str(num_lines)
-                #if c == 10000: break
+                if c == 10000: break
 
                 
 
@@ -186,7 +186,7 @@ class twoHeadsDataLayer(caffe.Layer):
         """
         # print '{}/img/trump/{}.jpg'.format(self.dir, idx)
         # start = time.time()
-        im = Image.open('{}/{}'.format(self.dir, idx))
+        im = Image.open('{}/val_images_256/{}'.format(self.dir, idx))
         # To resize try im = scipy.misc.imresize(im, self.im_shape)
         #.resize((self.resize_w, self.resize_h), Image.ANTIALIAS) # --> No longer suing this resizing, no if below
         # end = time.time()
