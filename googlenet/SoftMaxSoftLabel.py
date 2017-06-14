@@ -45,6 +45,7 @@ class SoftmaxSoftLabel(caffe.Layer):
 
     def backward(self, top, propagate_down, bottom):
         delta = self.diff
+        scores = bottom[0].data
         labels = bottom[1].data
         labels_scores = bottom[2].data
 
@@ -58,3 +59,33 @@ class SoftmaxSoftLabel(caffe.Layer):
 
 
                 bottom[i].diff[...] = delta / bottom[0].num
+
+                # Numerical gradient
+                epsilon = 1e-6
+                scores -= np.max(scores)
+
+                # GradPlus
+                scoresPlus = scores + epsilon
+                scoresPlus = np.exp(scoresPlus)
+                probsPlus = scoresPlus / np.sum(scoresPlus, axis=1, keepdims=True)
+                correct_logprobsPlus = np.zeros([bottom[0].num, 1])
+                for r in range(bottom[0].num):
+                    correct_logprobsPlus[r] = -np.log(probsPlus[r, int(labels[r])]) * labels_scores[r]
+                gradPlus = np.sum(correct_logprobsPlus) / bottom[0].num
+
+                # GradMinus
+                scoresMinus = scores - epsilon
+                scoresMinus = np.exp(scoresMinus)
+                probsMinus = scoresMinus / np.sum(scoresMinus, axis=1, keepdims=True)
+                correct_logprobsMinus = np.zeros([bottom[0].num, 1])
+                for r in range(bottom[0].num):
+                    correct_logprobsMinus[r] = -np.log(probsMinus[r, int(labels[r])]) * labels_scores[r]
+                gradMinus = np.sum(correct_logprobsMinus) / bottom[0].num
+
+                grad = (gradPlus - gradMinus) / (2. * epsilon)
+
+                print "Numerical gradient: " + str(grad)
+                print "Backprop gradient: " + str(np.sum(bottom[0].diff))
+                print('\n')
+
+
