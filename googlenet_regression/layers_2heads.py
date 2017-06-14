@@ -186,7 +186,7 @@ class twoHeadsDataLayer(caffe.Layer):
         """
         # print '{}/img/trump/{}.jpg'.format(self.dir, idx)
         # start = time.time()
-        im = Image.open('{}/val_images_256/{}'.format(self.dir, idx))
+        im = Image.open('{}/{}'.format(self.dir, idx))
         # To resize try im = scipy.misc.imresize(im, self.im_shape)
         #.resize((self.resize_w, self.resize_h), Image.ANTIALIAS) # --> No longer suing this resizing, no if below
         # end = time.time()
