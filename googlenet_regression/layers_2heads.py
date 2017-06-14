@@ -90,7 +90,7 @@ class twoHeadsDataLayer(caffe.Layer):
             for c,i in enumerate(annsfile):
             #for c,i in enumerate(self.anns):
                 
-                data = i.split(' ')
+                data = i.split(',')
 
                 #Load index
                 self.indices[c] = data[0]
@@ -101,8 +101,8 @@ class twoHeadsDataLayer(caffe.Layer):
                 self.labels[c] = int(data[1])
     
                 #Load regression labels
-                # for l in range(0,self.num_classes):
-                #     self.labelsRegression[c,l] = float(data[l+2])
+                for l in range(0,self.num_classes):
+                    self.labelsRegression[c,l] = float(data[l+2])
 
                 if c % 10000 == 0: print "Read " + str(c) + " / " + str(num_lines)
                 if c == 10000: break
