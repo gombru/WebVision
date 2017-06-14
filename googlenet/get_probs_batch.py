@@ -14,7 +14,7 @@ test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str
 model = 'WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000'
 
 #Output file
-output_file_dir = '../../../datasets/WebVision/results/classification/' + model
+output_file_dir = '../../../datasets/WebVision/results/classification_crop/' + model
 if not os.path.exists(output_file_dir):
     os.makedirs(output_file_dir)
 output_file_path = output_file_dir + '/val.txt'
@@ -23,11 +23,16 @@ output_file = open(output_file_path, "w")
 # load net
 net = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model + '.caffemodel', caffe.TEST)
 
-
+resize = True
 size = 224
 
+# Images are 256*>256. The idea is to crop the 256x256 center and resize the square image to 224 to avoid distortion
+# That makes sense because we have trained the net with crops, avoiding image distortion.
+crop = True
+crop_size = 256
+
 # Reshape net
-batch_size = 100
+batch_size = 200
 net.blobs['data'].reshape(batch_size, 3, size, size)
 
 print 'Computing  ...'
@@ -48,7 +53,26 @@ while i < len(test):
         filename = '../../../datasets/WebVision/val_images_256/' + test[i][0]
         im = Image.open(filename)
         im_o = im
-        im = im.resize((size, size), Image.ANTIALIAS)
+
+
+        #Crop center
+        if crop:
+            # Crops the central sizexsize part of an image
+            width, height = im.size
+            if width != crop_size:
+                left = (width - crop_size) / 2
+                right = width - left
+                im = im.crop((left, 0, right, height))
+            if height != crop_size:
+                top = (height - crop_size) / 2
+                bot = height - top
+                im = im.crop((0, top, width, bot))
+
+        #Resize
+        if resize:
+            im = im.resize((size, size), Image.ANTIALIAS)
+
+
         indices.append(test[i][0])
 
         # Turn grayscale images to 3 channels
