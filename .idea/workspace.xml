@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f553e799-7e6a-4909-b8d1-5ef39f37e388" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/googlenet/prototxt/val_softlabel.prototxt" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/WebVision_Inception_LDAfiltered_500_80000chunck360000.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" afterPath="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,11 +61,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="train_multiGPU.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="train_multiGPU.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/googlenet/train_multiGPU.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
               <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoftMaxSoftLabel.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="68" column="46" lean-forward="false" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -153,7 +162,6 @@
         <option value="$PROJECT_DIR$/googlenet/prototxt/val_frozen.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" />
         <option value="$PROJECT_DIR$/lda/infer_lda_filtering_outliers.py" />
-        <option value="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" />
         <option value="$PROJECT_DIR$/googlenet_regression/prototxt/solver_multiGPU.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/train.py" />
         <option value="$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen_softlabel.prototxt" />
@@ -172,6 +180,7 @@
         <option value="$PROJECT_DIR$/googlenet/train_multiGPU.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/val_frozen_softlabel.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/val_softlabel.prototxt" />
+        <option value="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" />
       </list>
     </option>
   </component>
@@ -814,13 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train_lmdb.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
@@ -1005,6 +1007,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="68" column="46" lean-forward="false" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
           <folding />
         </state>
       </provider>
