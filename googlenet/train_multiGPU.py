@@ -9,7 +9,7 @@ from pylab import zeros, arange, subplots, plt, savefig
 
 training_id = 'WebVision_Inception_LDAscored_500_80000chunck' # name to save the training plots
 solver_path = 'prototxt/solver_multiGPU.prototxt' # solver proto definition
-snapshot = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.solverstate' # snapshot to restore (only weights initialzation)
+snapshot = '../../../datasets/WebVision/models/CNN/WebVision_Inception_LDAfiltering_500_80000chunck_iter_6100000.solverstate' # snapshot to restore (only weights initialzation)
 #snapshot = 0
 gpus = [0,1,2,3] # list of device ids # last GPU requires por mem (9000-5000)
 timing = False # show timing info for compute and communications
@@ -90,7 +90,7 @@ def plot(solver, nccl):
     ax2 = ax1.twinx()
     ax1.set_xlabel('iteration')
     ax1.set_ylabel('train loss C (r), val loss C (y)')
-    ax2.set_ylabel('train TOP1 (b), val TOP1 (g)')#, train TOP-5 (2) (c)')
+    ax2.set_ylabel('train TOP1 (b), val TOP1 (g), train TOP-5 (2) (c)')
     ax2.set_autoscaley_on(False)
     ax2.set_ylim([0, 1])
 
@@ -105,7 +105,7 @@ def plot(solver, nccl):
 
             lossC[solver.iter] = solver.net.blobs['loss3/loss3'].data.copy()
             acc1[solver.iter] = solver.net.blobs['loss3/top-1'].data.copy()
-            #acc5[solver.iter] = solver.net.blobs['loss2/top-5'].data.copy()
+            acc5[solver.iter] = solver.net.blobs['loss3/top-5'].data.copy()
 
             loss_disp = 'loss3C= ' + str(lossC[solver.iter]) +  '  top-1= ' + str(acc1[solver.iter])
 

@@ -1,12 +1,16 @@
 import numpy as np
 
-data = np.loadtxt('../../../datasets//WebVision/results/classification/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000/val.txt', dtype=str)
+
+model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_580000_WebVision_Inception_finetune_withregressionhead025_iter_300000'
+op = 'ensemble_crops'
+
+data = np.loadtxt('../../../datasets//WebVision/results/classification_'+op+'/'+model+'/val.txt', dtype=str)
 test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
 
-correct_file_dir = '../../../datasets/WebVision/results/classification/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000/correctPerClass.txt'
+correct_file_dir = '../../../datasets/WebVision/results/classification_'+op+'/'+model+'/correctPerClass.txt'
 correct_file = open(correct_file_dir,'w')
 
-wrong_file_dir = '../../../datasets/WebVision/results/classification/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000/WrongPerClass.txt'
+wrong_file_dir = '../../../datasets/WebVision/results/classification_'+op+'/'+model+'/WrongPerClass.txt'
 wrong_file = open(wrong_file_dir,'w')
 
 correct_class = np.zeros([1000,1])

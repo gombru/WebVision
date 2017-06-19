@@ -4,6 +4,15 @@ import numpy as np
 from PIL import Image
 import os
 
+
+#switch to BGR and substract mean
+def preprocess(im):
+    in_ = np.array(im, dtype=np.float32)
+    in_ = in_[:,:,::-1]
+    in_ -= np.array((104, 117, 123))
+    in_ = in_.transpose((2,0,1))
+    return in_
+
 # Run in GPU
 caffe.set_device(0)
 caffe.set_mode_gpu()
@@ -31,14 +40,6 @@ output_file = open(output_file_path, "w")
 net = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model + '.caffemodel', caffe.TEST)
 if ensembleClassifiers: net2 = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model2 + '.caffemodel', caffe.TEST)
 
-resize = True
-size = 224
-
-# Images are 256*>256. The idea is to crop the 256x256 center and resize the square image to 224 to avoid distortion
-# That makes sense because we have trained the net with crops, avoiding image distortion.
-crop = True
-crop_size = 256
-
 # Reshape net
 batch_size = 100
 net.blobs['data'].reshape(batch_size, 3, size, size)
@@ -55,35 +56,15 @@ while i < len(test):
         print i
 
     # Fill batch
-    for x in range(0, batch_size):
+    while (x < batch_size):
 
         if i > len(test) - 1: break
 
         # load image
         filename = '../../../datasets/WebVision/val_images_256/' + test[i][0]
+        indices.append(test[i][0])
         im = Image.open(filename)
         im_o = im
-
-
-        #Crop center
-        if crop:
-            # Crops the central sizexsize part of an image
-            width, height = im.size
-            if width != crop_size:
-                left = (width - crop_size) / 2
-                right = width - left
-                im = im.crop((left, 0, right, height))
-            if height != crop_size:
-                top = (height - crop_size) / 2
-                bot = height - top
-                im = im.crop((0, top, width, bot))
-
-        #Resize
-        if resize:
-            im = im.resize((size, size), Image.ANTIALIAS)
-
-
-        indices.append(test[i][0])
 
         # Turn grayscale images to 3 channels
         if (im.size.__len__() == 2):
@@ -91,11 +72,39 @@ while i < len(test):
             im = Image.new("RGB", im_gray.size)
             im.paste(im_gray)
 
-        #switch to BGR and substract mean
-        in_ = np.array(im, dtype=np.float32)
-        in_ = in_[:,:,::-1]
-        in_ -= np.array((104, 117, 123))
-        in_ = in_.transpose((2,0,1))
+        #Do crops
+        crops = []
+
+        #1 Crop 256x256 center and resize to 224x224
+        crop.size = 256
+        crop = in_
+        width, height = crop.size
+        if width != crop_size:
+            left = (width - crop_size) / 2
+            right = width - left
+            crop = crop.crop((left, 0, right, height))
+        if height != crop_size:
+            top = (height - crop_size) / 2
+            bot = height - top
+            crop = crop.crop((0, top, width, bot))
+        im = im.resize((size, size), Image.ANTIALIAS)
+        crops.append(crop)
+
+        #1 Crop 224x224 center
+        crop.size = 224
+        crop = in_
+        width, height = crop.size
+        if width != crop_size:
+            left = (width - crop_size) / 2
+            right = width - left
+            crop = crop.crop((left, 0, right, height))
+        if height != crop_size:
+            top = (height - crop_size) / 2
+            bot = height - top
+            crop = crop.crop((0, top, width, bot))
+        im = im.resize((size, size), Image.ANTIALIAS)
+        crops.append(crop)
+
 
         net.blobs['data'].data[x,] = in_
         if ensembleClassifiers: net2.blobs['data'].data[x,] = in_
@@ -110,7 +119,7 @@ while i < len(test):
     # Save results for each batch element
     for x in range(0,len(indices)):
         probs = net.blobs['probs'].data[x]
-        if ensembleClassifiers: probs2 = net2.blobs['probs'].data[x]
+        probs2 = net2.blobs['probs'].data[x]
         if ensembleClassifiers: probs = (probs + probs2) / 2
         top5 = probs.argsort()[::-1][0:5]
         top5str = ''

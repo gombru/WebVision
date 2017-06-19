@@ -1,15 +1,15 @@
-train_net: "prototxt/train_frozen_softlabel.prototxt"
-test_net: "prototxt/val_frozen_softlabel.prototxt"
+train_net: "prototxt/train_softlabel.prototxt"
+test_net: "prototxt/val_softlabel.prototxt"
 test_iter: 1
 test_interval: 10000000
 display: 500
 average_loss: 1000
-base_lr: 0.02 #0.01
+base_lr: 0.01 #0.01
 lr_policy: "poly"
 power: 0.5
 max_iter: 2400000
 momentum: 0.9
 weight_decay: 0.0002
-snapshot: 40000
+snapshot: 50000
 snapshot_prefix: "../../../datasets/WebVision/models/CNN/WebVision_Inception_LDAscored_500_80000chunck"
 solver_mode: GPU
