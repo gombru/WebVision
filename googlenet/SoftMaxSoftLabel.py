@@ -29,7 +29,7 @@ class SoftmaxSoftLabel(caffe.Layer):
         scores = bottom[0].data
 
         #normalizing to avoid instability
-        scores -= np.max(scores)
+        scores -= np.max(scores, axis=1, keepdims=True)
         exp_scores = np.exp(scores)
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
 
@@ -60,7 +60,7 @@ class SoftmaxSoftLabel(caffe.Layer):
 
                 bottom[i].diff[...] = delta / bottom[0].num
 
-                # Numerical gradient
+                # # Numerical gradient
                 # epsilon = 1e-6
                 # scores -= np.max(scores)
                 #

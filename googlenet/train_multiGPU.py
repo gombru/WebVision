@@ -81,6 +81,7 @@ def plot(solver, nccl):
 
     val_loss_C = zeros(maxIter/test_interval)
     val_top1 = zeros(maxIter/test_interval)
+    val_top5 = zeros(maxIter/test_interval)
 
 
     it_axes = (arange(maxIter) * display) + display
@@ -90,7 +91,7 @@ def plot(solver, nccl):
     ax2 = ax1.twinx()
     ax1.set_xlabel('iteration')
     ax1.set_ylabel('train loss C (r), val loss C (y)')
-    ax2.set_ylabel('train TOP1 (b), val TOP1 (g), train TOP-5 (2) (c)')
+    ax2.set_ylabel('train TOP1 (b), val TOP1 (g), train TOP-5 (c), val TOP-5 (k)')
     ax2.set_autoscaley_on(False)
     ax2.set_ylim([0, 1])
 
@@ -130,21 +131,32 @@ def plot(solver, nccl):
         if solver.iter % test_interval == 0 and solver.iter > 0:
             loss_val_C = 0
             top1_val = 0
+            top5_val = 0
+
             for i in range(test_iters):
                 solver.test_nets[0].forward()
                 loss_val_C += solver.test_nets[0].blobs['loss3/loss3'].data
                 top1_val += solver.test_nets[0].blobs['loss3/top-1'].data
+                top1_val += solver.test_nets[0].blobs['loss3/top-5'].data
+
 
             loss_val_C /= test_iters
             top1_val /= test_iters
+            top5_val /= test_iters
+
 
             print("Val loss C: {:.3f}".format(loss_val_C))
 
+
             val_loss_C[solver.iter / test_interval - 1] = loss_val_C
             val_top1[solver.iter / test_interval - 1] = top1_val
+            val_top5[solver.iter / test_interval - 1] = top5_val
+
 
             ax1.plot(it_val_axes[0:solver.iter / test_interval], val_loss_C[0:solver.iter / test_interval], 'y')
             ax2.plot(it_val_axes[0:solver.iter / test_interval], val_top1[0:solver.iter / test_interval], 'g')
+            ax2.plot(it_val_axes[0:solver.iter / test_interval], val_top5[0:solver.iter / test_interval], 'k')
+
 
             ax1.set_ylim([0, 10])
             plt.title(training_id)
