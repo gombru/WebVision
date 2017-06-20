@@ -7,9 +7,9 @@ import caffe
 import numpy as np
 from pylab import zeros, arange, subplots, plt, savefig
 
-training_id = 'WebVision_Inception_LDAscored_500_80000chunck' # name to save the training plots
+training_id = 'WebVision_Inception_LDAfiltered_LMDB' # name to save the training plots
 solver_path = 'prototxt/solver_multiGPU.prototxt' # solver proto definition
-snapshot = '../../../datasets/WebVision/models/CNN/WebVision_Inception_LDAfiltering_500_80000chunck_iter_6100000.solverstate' # snapshot to restore (only weights initialzation)
+snapshot = '../../../datasets/WebVision/models/CNN/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.solverstate' # snapshot to restore (only weights initialzation)
 #snapshot = 0
 gpus = [0,1,2,3] # list of device ids # last GPU requires por mem (9000-5000)
 timing = False # show timing info for compute and communications
@@ -137,7 +137,7 @@ def plot(solver, nccl):
                 solver.test_nets[0].forward()
                 loss_val_C += solver.test_nets[0].blobs['loss3/loss3'].data
                 top1_val += solver.test_nets[0].blobs['loss3/top-1'].data
-                top1_val += solver.test_nets[0].blobs['loss3/top-5'].data
+                top5_val += solver.test_nets[0].blobs['loss3/top-5'].data
 
 
             loss_val_C /= test_iters

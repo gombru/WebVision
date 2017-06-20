@@ -23,9 +23,10 @@ test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str
 model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_580000'
 
 #Ensemble 2 classifiers
-ensembleClassifiers = True
+ensembleClassifiers = False
 model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_300000'
 
+num_crops = 1
 
 #Output file
 output_file_dir = '../../../datasets/WebVision/results/classification_crops' + '/' + model
@@ -55,7 +56,7 @@ while i < len(test):
 
     x = 0
     # Fill batch
-    while (x < batch_size - 2):
+    while (x < batch_size - num_crops):
 
         if i > len(test) - 1: break
 
@@ -80,58 +81,58 @@ while i < len(test):
 
         #1 Crop 256x256 center and resize to 224x224
         crop_size = 256
-        crop = im
+        patch = im
 
         if width != crop_size:
             left = (width - crop_size) / 2
             right = width - left
-            crop = crop.crop((left, 0, right, height))
+            patch = patch.crop((left, 0, right, height))
         if height != crop_size:
             top = (height - crop_size) / 2
             bot = height - top
-            crop = crop.crop((0, top, width, bot))
-        crops.append(crop)
+            patch = patch.crop((0, top, width, bot))
+        crops.append(patch)
 
         #2 Crop 224x224 center
-        crop_size = 224
-        crop = im
-        left = (width - crop_size) / 2
-        right = width - left
-        top = (height - crop_size) / 2
-        bot = height - top
-        crop = crop.crop((left, top, right, bot))
-        crops.append(crop)
+        # crop_size = 224
+        # patch = im
+        # left = (width - crop_size) / 2
+        # right = width - left
+        # top = (height - crop_size) / 2
+        # bot = height - top
+        # patch = patch.crop((left, top, right, bot))
+        # crops.append(patch)
 
         #3 If wide image: Crop left and right 256x256 and resize to 224x224
         # if width > height:
-        #     crop = im
+        #     patch = im
         #     left = 0
         #     right = 255
-        #     crop = crop.crop((left, 0, right, height))
-        #     crops.append(crop)
+        #     patch = patch.crop((left, 0, right, height))
+        #     crops.append(patch)
         #
-        #     crop = im
+        #     patch = im
         #     left = width - 256
         #     right = width
-        #     crop = crop.crop((left, 0, right, height))
-        #     crops.append(crop)
+        #     patch = patch.crop((left, 0, right, height))
+        #     crops.append(patch)
         #
         # # 3 If vertical image: Crop top and bot 256x256 and resize to 224x224
         # else: #height > width:
-        #     crop = im
+        #     patch = im
         #     top = 0
         #     bot = 255
-        #     crop = crop.crop((0, top, width, bot))
-        #     crops.append(crop)
+        #     crop = patch.crop((0, top, width, bot))
+        #     crops.append(patch)
         #
-        #     crop = im
+        #     patch = im
         #     top = height - 256
         #     bot = height
-        #     crop = crop.crop((0, top, width, bot))
-        #     crops.append(crop)
+        #     patch = crop.patch((0, top, width, bot))
+        #     crops.append(patch)
 
 
-        if len(crops) != 2: print "Warning, not 2 crops for this image"
+        if len(crops) != num_crops: print "Warning, not " +num_crops+ " crops for this image"
 
         for crop in crops:
             crop = crop.resize((224, 224), Image.ANTIALIAS)
@@ -141,7 +142,7 @@ while i < len(test):
             indices.append(test[i][0]) # Each image will have 2 indices repeated
             x += 1
 
-        x += 2
+        x += num_crops
         i += 1
 
     # run net and take scores
@@ -156,16 +157,16 @@ while i < len(test):
         probs = np.zeros(net.blobs['probs'].data[0].size)
         probs2 = np.zeros(net.blobs['probs'].data[0].size)
 
-        while c < 2: # for each crop
+        while c < num_crops: # for each crop
             probs += net.blobs['probs'].data[x+c]
-            probs2 += net2.blobs['probs'].data[x+c]
+            if ensembleClassifiers: probs2 += net2.blobs['probs'].data[x+c]
             c+=1
 
             # print probs.argsort()[::-1][0:5]
             # print probs2.argsort()[::-1][0:5]
 
-        probs = probs / 2
-        probs2 = probs2 / 2
+        probs = probs / num_crops
+        if ensembleClassifiers: probs2 = probs2 / num_crops
         if ensembleClassifiers: probs = (probs + probs2) / 2
 
         top5 = probs.argsort()[::-1][0:5]
@@ -176,7 +177,7 @@ while i < len(test):
 
         output_file.write(indices[x] + top5str + '\n')
 
-        x+=2
+        x+=num_crops
 
 output_file.close()
 

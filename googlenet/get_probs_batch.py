@@ -15,7 +15,7 @@ model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_580000'
 
 #Ensemble 2 classifiers
 ensembleClassifiers = True
-model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_300000'
+model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_360000'
 
 op = 'crop'
 

@@ -1,8 +1,8 @@
 import numpy as np
 
 
-model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_580000_WebVision_Inception_finetune_withregressionhead025_iter_300000'
-op = 'ensemble_crops'
+model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_580000'
+op = 'crops'
 
 data = np.loadtxt('../../../datasets//WebVision/results/classification_'+op+'/'+model+'/val.txt', dtype=str)
 test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
