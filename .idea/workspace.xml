@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f553e799-7e6a-4909-b8d1-5ef39f37e388" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/WebVision_Inception_LDAfiltered_500_80000chunck360000.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/evaluation/getTOPN.py" afterPath="$PROJECT_DIR$/evaluation/getTOPN.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/create_DataLayer.py" afterPath="$PROJECT_DIR$/googlenet/create_DataLayer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/get_probs_batch.py" afterPath="$PROJECT_DIR$/googlenet/get_probs_batch.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" afterPath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/layers.py" afterPath="$PROJECT_DIR$/googlenet/layers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/train.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/train.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/val.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/val.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webvision-master/config.py" afterPath="$PROJECT_DIR$/webvision-master/config.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,8 +25,8 @@
       <file leaf-file-name="layers.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="258" column="11" lean-forward="true" selection-start-line="258" selection-start-column="11" selection-end-line="258" selection-end-column="11" />
+            <state relative-caret-position="267">
+              <caret line="270" column="31" lean-forward="true" selection-start-line="270" selection-start-column="31" selection-end-line="270" selection-end-column="31" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -43,31 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Image.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python2.7/dist-packages/PIL/Image.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13266">
-              <caret line="741" column="0" lean-forward="false" selection-start-line="741" selection-start-column="0" selection-end-line="741" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/googlenet/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="solver.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="141">
+              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,38 +47,8 @@
       <file leaf-file-name="create_DataLayer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/googlenet/create_DataLayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="24" column="46" lean-forward="false" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data_layer.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="val.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/val.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+            <state relative-caret-position="207">
+              <caret line="23" column="53" lean-forward="true" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -205,11 +146,11 @@
         <option value="$PROJECT_DIR$/evaluation/getTOPN.py" />
         <option value="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" />
         <option value="$PROJECT_DIR$/googlenet/get_probs_batch.py" />
-        <option value="$PROJECT_DIR$/googlenet/create_DataLayer.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/val.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/train.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" />
+        <option value="$PROJECT_DIR$/googlenet/create_DataLayer.py" />
         <option value="$PROJECT_DIR$/googlenet/layers.py" />
       </list>
     </option>
@@ -628,7 +569,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41505376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49895614" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18226333" sideWeight="0.5087282" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -690,16 +631,6 @@
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/googlenet/train.py</url>
-          <line>93</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/googlenet/train.py</url>
-          <line>96</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py</url>
           <line>163</line>
           <option name="timeStamp" value="76" />
@@ -726,11 +657,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/googlenet/layers.py</url>
-          <line>258</line>
-          <option name="timeStamp" value="85" />
+          <line>265</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/googlenet/layers.py</url>
+          <line>263</line>
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="86" />
+      <option name="time" value="89" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1004,14 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/create_DataLayer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="24" column="46" lean-forward="false" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1036,14 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="14" lean-forward="false" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/python2.7/dist-packages/PIL/Image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13266">
@@ -1052,21 +972,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="258" column="11" lean-forward="true" selection-start-line="258" selection-start-column="11" selection-end-line="258" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/create_DataLayer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="23" column="53" lean-forward="true" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="270" column="31" lean-forward="true" selection-start-line="270" selection-start-column="31" selection-end-line="270" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

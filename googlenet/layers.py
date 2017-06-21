@@ -258,8 +258,8 @@ class customDataLayer(caffe.Layer):
         #im = im.convert('HSV')
         data = np.array(im)  # "data" is a height x width x 3 numpy array
         hsv_data = cv2.cvtColor(data, cv2.COLOR_RGB2HSV)
-        hsv_data[:, :, 1] = data[:, :, 1] * random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
-        hsv_data[:, :, 2] = data[:, :, 2] * random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
+        hsv_data[:, :, 1] = hsv_data[:, :, 1] #* random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
+        hsv_data[:, :, 2] = hsv_data[:, :, 2] #* random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
         data = cv2.cvtColor(hsv_data, cv2.COLOR_HSV2RGB)
         im = Image.fromarray(data, 'RGB')
         #im = im.convert('RGB')
