@@ -17,23 +17,25 @@ def preprocess(im):
 caffe.set_device(0)
 caffe.set_mode_gpu()
 
-test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
+split = 'test'
+
+test = np.loadtxt('../../../datasets/WebVision/info/'+split+'_filelist.txt', dtype=str)
 
 #Model name
-model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_580000'
+model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_300000'
 
 #Ensemble 2 classifiers
-ensembleClassifiers = False
-model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_300000'
+ensembleClassifiers = True
+model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_440000'
 
-num_crops = 1
+num_crops = 4
 
 #Output file
 output_file_dir = '../../../datasets/WebVision/results/classification_crops' + '/' + model
-if ensembleClassifiers: output_file_dir = '../../../datasets/WebVision/results/classification_ensemble_crops' + '/' + model + '_' + model2
+if ensembleClassifiers: output_file_dir = '../../../datasets/WebVision/results/classification_ensemble_crops_' + str(num_crops) + '/' + model + '_' + model2
 if not os.path.exists(output_file_dir):
     os.makedirs(output_file_dir)
-output_file_path = output_file_dir + '/val.txt'
+output_file_path = output_file_dir + '/'+split+'.txt'
 output_file = open(output_file_path, "w")
 
 # load net
@@ -41,7 +43,7 @@ net = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebV
 if ensembleClassifiers: net2 = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model2 + '.caffemodel', caffe.TEST)
 
 # Reshape net
-batch_size = 140
+batch_size = 150
 size = 224
 net.blobs['data'].reshape(batch_size, 3, size, size)
 if ensembleClassifiers: net2.blobs['data'].reshape(batch_size, 3, size, size)
@@ -64,9 +66,12 @@ while i < len(test):
             print i
 
         # load image
-        filename = '../../../datasets/WebVision/val_images_256/' + test[i][0]
+        if split == 'test':
+            filename = '../../../datasets/WebVision/'+split+'_images_256/' + test[i]
+        else:
+            filename = '../../../datasets/WebVision/'+split+'_images_256/' + test[i][0]
         im = Image.open(filename)
-        im_o = im
+        # im_o = im
 
         # Turn grayscale images to 3 channels
         if (im.size.__len__() == 2):
@@ -81,7 +86,7 @@ while i < len(test):
 
         #1 Crop 256x256 center and resize to 224x224
         crop_size = 256
-        patch = im
+        patch = im.copy()
 
         if width != crop_size:
             left = (width - crop_size) / 2
@@ -93,56 +98,58 @@ while i < len(test):
             patch = patch.crop((0, top, width, bot))
         crops.append(patch)
 
-        #2 Crop 224x224 center
-        # crop_size = 224
-        # patch = im
-        # left = (width - crop_size) / 2
-        # right = width - left
-        # top = (height - crop_size) / 2
-        # bot = height - top
-        # patch = patch.crop((left, top, right, bot))
-        # crops.append(patch)
+        # 2 Crop 224x224 center
+        crop_size = 224
+        patch = im.copy()
+        left = (width - crop_size) / 2
+        right = width - left
+        top = (height - crop_size) / 2
+        bot = height - top
+        patch = patch.crop((left, top, right, bot))
+        crops.append(patch)
 
-        #3 If wide image: Crop left and right 256x256 and resize to 224x224
-        # if width > height:
-        #     patch = im
-        #     left = 0
-        #     right = 255
-        #     patch = patch.crop((left, 0, right, height))
-        #     crops.append(patch)
-        #
-        #     patch = im
-        #     left = width - 256
-        #     right = width
-        #     patch = patch.crop((left, 0, right, height))
-        #     crops.append(patch)
-        #
-        # # 3 If vertical image: Crop top and bot 256x256 and resize to 224x224
-        # else: #height > width:
-        #     patch = im
-        #     top = 0
-        #     bot = 255
-        #     crop = patch.crop((0, top, width, bot))
-        #     crops.append(patch)
-        #
-        #     patch = im
-        #     top = height - 256
-        #     bot = height
-        #     patch = crop.patch((0, top, width, bot))
-        #     crops.append(patch)
+        # 3 If wide image: Crop left and right 256x256 and resize to 224x224
+        if width > height:
+            patch = im.copy()
+            left = 0
+            right = 255
+            patch = patch.crop((left, 0, right, height))
+            crops.append(patch)
+
+            patch = im.copy()
+            left = width - 256
+            right = width
+            patch = patch.crop((left, 0, right, height))
+            crops.append(patch)
+
+        # 3 If vertical image: Crop top and bot 256x256 and resize to 224x224
+        else: #height > width:
+            patch = im.copy()
+            top = 0
+            bot = 255
+            crop = patch.crop((0, top, width, bot))
+            crops.append(patch)
+
+            patch = im.copy()
+            top = height - 256
+            bot = height
+            patch = patch.crop((0, top, width, bot))
+            crops.append(patch)
 
 
-        if len(crops) != num_crops: print "Warning, not " +num_crops+ " crops for this image"
+        if len(crops) != num_crops: print "Warning, not " +str(num_crops)+ " crops for this image"
 
         for crop in crops:
             crop = crop.resize((224, 224), Image.ANTIALIAS)
             crop = preprocess(crop)
             net.blobs['data'].data[x,] = crop
             if ensembleClassifiers: net2.blobs['data'].data[x,] = crop
-            indices.append(test[i][0]) # Each image will have 2 indices repeated
+            if split == 'test':
+                indices.append(test[i])
+            else:
+                indices.append(test[i][0]) # Each image will have 2 indices repeated
             x += 1
 
-        x += num_crops
         i += 1
 
     # run net and take scores
@@ -173,7 +180,7 @@ while i < len(test):
         top5str = ''
 
         for t in top5:
-            top5str = top5str + ',' + str(t)
+            top5str = top5str + ' ' + str(t)
 
         output_file.write(indices[x] + top5str + '\n')
 
@@ -182,5 +189,5 @@ while i < len(test):
 output_file.close()
 
 print "DONE"
-
+print output_file_dir
 

@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image
 from PIL import ImageOps
 import time
+import cv2
 
 import random
 
@@ -54,9 +55,15 @@ class customDataLayer(caffe.Layer):
         self.crop_h = params['crop_h']
         self.crop_margin = params['crop_margin']
         self.mirror = params['mirror']
-        self.rotate = params['rotate']
+        self.rotate_prob = params['rotate_prob']
+        self.rotate_angle = params['rotate_angle']
         self.HSV_prob = params['HSV_prob']
         self.HSV_jitter = params['HSV_jitter']
+        self.color_casting_prob = params['color_casting_prob']
+        self.color_casting_jitter = params['color_casting_jitter']
+        self.scaling_prob = params['scaling_prob']
+        self.scaling_factor = params['scaling_factor']
+
 
         self.num_classes= params['num_classes']
 
@@ -188,14 +195,19 @@ class customDataLayer(caffe.Layer):
             if im.size[0] != self.resize_w or im.size[1] != self.resize_h:
                 im = im.resize((self.resize_w, self.resize_h), Image.ANTIALIAS)
 
-        if( im.size.__len__() == 2):
-            im_gray = im
-            im = Image.new("RGB", im_gray.size)
-            im.paste(im_gray)
+        # PIL as size returns wxh not channels
+        # if( im.size.__len__() == 2):
+        #     im_gray = im
+        #     im = Image.new("RGB", im_gray.size)
+        #     im.paste(im_gray)
 
         #start = time.time()
         if self.train: #Data Aumentation
-            if(self.rotate is not 0):
+
+            if(self.scaling_prob is not 0):
+                im = self.rescale_image(im)
+
+            if(self.rotate_prob is not 0):
                 im = self.rotate_image(im)
 
             if self.crop_h is not self.resize_h or self.crop_h is not self.resize_h:
@@ -206,6 +218,9 @@ class customDataLayer(caffe.Layer):
 
             if(self.HSV_prob is not 0):
                 im = self.saturation_value_jitter_image(im)
+
+            if(self.color_casting_prob is not 0):
+                im = self.color_casting(im)
 
         #end = time.time()
         #print "Time data aumentation: " + str((end - start))
@@ -233,18 +248,42 @@ class customDataLayer(caffe.Layer):
         return ImageOps.mirror(im)
 
     def rotate_image(self, im):
-        return im.rotate(random.randint(-self.rotate, self.rotate))
+        if(random.random() > self.rotate_prob):
+            return im
+        return im.rotate(random.randint(-self.rotate_angle, self.rotate_angle))
 
     def saturation_value_jitter_image(self,im):
-        if(random.randint(0, int(1/self.HSV_prob)) == 0):
+        if(random.random() > self.HSV_prob):
             return im
-        im = im.convert('HSV')
+        #im = im.convert('HSV')
         data = np.array(im)  # "data" is a height x width x 3 numpy array
-        data[:, :, 1] = data[:, :, 1] * random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
-        data[:, :, 2] = data[:, :, 2] * random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
-        im = Image.fromarray(data, 'HSV')
-        im = im.convert('RGB')
+        hsv_data = cv2.cvtColor(data, cv2.COLOR_RGB2HSV)
+        hsv_data[:, :, 1] = data[:, :, 1] * random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
+        hsv_data[:, :, 2] = data[:, :, 2] * random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
+        data = cv2.cvtColor(hsv_data, cv2.COLOR_HSV2RGB)
+        im = Image.fromarray(data, 'RGB')
+        #im = im.convert('RGB')
         return im
+
+    def rescale_image(self, im):
+        if(random.random() > self.scaling_prob):
+            return im
+        width, height = im.size
+        im = im.resize((int(width * self.scaling_factor), int(height * self.scaling_factor)), Image.ANTIALIAS)
+        return im
+
+    def color_casting(self, im):
+        if(random.random() > self.color_casting_prob):
+            return im
+        data = np.array(im)  # "data" is a height x width x 3 numpy array
+        ch = random.randint(0, 2)
+        jitter = random.randint(0, int(1 / self.color_casting_jitter))
+        data[:, :, ch] = data[:, :, ch] + jitter
+        im = Image.fromarray(data, 'RGB')
+        return im
+
+
+
 
 
 class customDataLayerWithLabelScore(caffe.Layer):

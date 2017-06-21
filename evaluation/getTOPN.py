@@ -1,8 +1,8 @@
 import numpy as np
 
 
-model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_580000'
-op = 'crops'
+model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_300000_WebVision_Inception_finetune_withregressionhead025_iter_440000'
+op = 'ensemble_crops_4'
 
 data = np.loadtxt('../../../datasets//WebVision/results/classification_'+op+'/'+model+'/val.txt', dtype=str)
 test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
@@ -20,7 +20,7 @@ top1 = 0
 top5 = 0
 
 for i,r in enumerate(data):
-    r = r.split(',')
+    #r = r.split(',')
     gt_label = test[i][1]
 
     if gt_label == r[1]:
