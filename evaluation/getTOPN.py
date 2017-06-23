@@ -1,7 +1,7 @@
 import numpy as np
 
 
-model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_300000_WebVision_Inception_finetune_withregressionhead025_iter_440000'
+model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_300000_WebVision_Inception_finetune_withregressionhead025_iter_460k+40000'
 op = 'ensemble_crops_4'
 
 data = np.loadtxt('../../../datasets//WebVision/results/classification_'+op+'/'+model+'/val.txt', dtype=str)

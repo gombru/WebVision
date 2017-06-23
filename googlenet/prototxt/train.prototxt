@@ -6,9 +6,10 @@ layer {
   python_param {
     module: "layers"
     layer: "customDataLayer"
-    param_str: "{\'rotate_prob\': 0.2, \'resize_h\': 256, \'HSV_jitter\': 0.1, \'scaling_factor\': 1.3, \'color_casting_jitter\': 10, \'scaling_prob\': 0.5, \'dir\': \'../../../datasets/WebVision\', \'batch_size\': 10, \'crop_h\': 224, \'color_casting_prob\': 0.05, \'crop_w\': 224, \'train\': True, \'resize\': False, \'split\': \'/info/val_filelist\', \'mirror\': True, \'resize_w\': 256, \'HSV_prob\': 0.2, \'crop_margin\': 0, \'rotate_angle\': 8, \'num_classes\': 1000, \'mean\': (104, 117, 123)}"
+    param_str: "{\'rotate_prob\': 0.2, \'resize_h\': 256, \'HSV_jitter\': 0.05, \'scaling_factor\': 1.3, \'color_casting_jitter\': 10, \'scaling_prob\': 0.5, \'dir\': \'../../../datasets/WebVision\', \'batch_size\': 100, \'crop_h\': 224, \'color_casting_prob\': 0.05, \'crop_w\': 224, \'train\': True, \'resize\': False, \'split\': \'/info/val_filelist\', \'mirror\': True, \'resize_w\': 256, \'HSV_prob\': 0.2, \'crop_margin\': 4, \'rotate_angle\': 8, \'num_classes\': 1000, \'mean\': (104, 117, 123)}"
   }
 }
+
 
 layer {
   name: "conv1/7x7_s2"
@@ -899,7 +900,7 @@ layer {
   bottom: "loss1/classifier"
   bottom: "label"
   top: "loss1/loss1"
-  loss_weight: 0.3
+  loss_weight: 0
 }
 layer {
   name: "loss1/top-1"
@@ -1656,7 +1657,7 @@ layer {
   bottom: "loss2/classifier"
   bottom: "label"
   top: "loss2/loss1"
-  loss_weight: 0.3
+  loss_weight: 0
 }
 layer {
   name: "loss2/top-1"

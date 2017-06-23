@@ -9,18 +9,18 @@ from pylab import zeros, arange, subplots, plt, savefig
 caffe.set_device(0)
 caffe.set_mode_gpu()
 
-training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck' # name to save the training plots
+training_id = 'WebVision_Inception_LDAfiltered_500_80000chunck_dataAugmentation' # name to save the training plots
 
-weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAfiltering_500_80000chunck_iter_1440000.caffemodel'
+weights = '../../../datasets/WebVision/models/saved/WebVision_Inception_LDAscored_500_80000chunck_iter_300000.caffemodel'
 
 assert os.path.exists(weights)
 
-display_interval = 5 #500
+display_interval = 500 #500
 niter = 100011100
 
 #number of validating images  is  test_iters * batchSize
-test_interval = 1 #200
-test_iters = 10 #20
+test_interval = 200 #200
+test_iters = 20 #20
 solver_filename = 'prototxt/solver.prototxt'
 solver = caffe.get_solver(solver_filename)
 
@@ -41,6 +41,8 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
 
     val_loss_C = zeros(maxIter/test_interval)
     val_top1 = zeros(maxIter/test_interval)
+    val_top5 = zeros(maxIter/test_interval)
+
 
     it_axes = (arange(maxIter) * display) + display
     it_val_axes = (arange(maxIter) * test_interval) + test_interval
@@ -49,13 +51,13 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
     ax2 = ax1.twinx()
     ax1.set_xlabel('iteration')
     ax1.set_ylabel('train loss C (r), val loss C (y)')
-    ax2.set_ylabel('train TOP1 (b), val TOP1 (g)')#, train TOP-5 (2) (c)')
+    ax2.set_ylabel('train TOP1 (b), val TOP1 (g), train TOP-5 (c), val TOP-5 (k)')
     ax2.set_autoscaley_on(False)
     ax2.set_ylim([0, 1])
 
     lossC = np.zeros(maxIter)
     acc1 = np.zeros(maxIter)
-    #acc5 = np.zeros(maxIter)
+    acc5 = np.zeros(maxIter)
 
 
     #RUN TRAINING
@@ -69,7 +71,7 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
         if it % display == 0 or it + 1 == niter:
             lossC[it] = solver.net.blobs['loss3/loss3'].data.copy()
             acc1[it] = solver.net.blobs['loss3/top-1'].data.copy()
-            #acc5[it] = solver.net.blobs['loss2/top-5'].data.copy()
+            acc5[it] = solver.net.blobs['loss3/top-5'].data.copy()
 
             loss_disp = 'loss3C= ' + str(lossC[it]) +  '  top-1= ' + str(acc1[it])
 
@@ -77,11 +79,11 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
 
             train_loss_C[it / display] = lossC[it]
             train_top1[it / display] = acc1[it]
-            #train_top5[it / display] = acc5[it]
+            train_top5[it / display] = acc5[it]
 
             ax1.plot(it_axes[0:it / display], train_loss_C[0:it / display], 'r')
             ax2.plot(it_axes[0:it / display], train_top1[0:it / display], 'b')
-            #ax2.plot(it_axes[0:it / display], train_top5[0:it / display], 'c')
+            ax2.plot(it_axes[0:it / display], train_top5[0:it / display], 'c')
 
             #ax1.set_ylim([0, 10])
             plt.title(training_id)
@@ -94,22 +96,30 @@ def do_solve(maxIter, solver, display, test_interval, test_iters):
         if it % test_interval == 0 and it > 0:
             loss_val_C = 0
             top1_val = 0
+            top5_val = 0
             for i in range(test_iters):
-                print i
                 solver.test_nets[0].forward()
                 loss_val_C += solver.test_nets[0].blobs['loss3/loss3'].data
                 top1_val += solver.test_nets[0].blobs['loss3/top-1'].data
+                top5_val += solver.test_nets[0].blobs['loss3/top-5'].data
+
 
             loss_val_C /= test_iters
             top1_val /= test_iters
+            top5_val /= test_iters
 
-            print("Val loss C: {:.3f}".format(loss_val_C[0]))
+
+            print("Val loss C: {:.3f}".format(loss_val_C))
 
             val_loss_C[it / test_interval - 1] = loss_val_C
             val_top1[it / test_interval - 1] = top1_val
+            val_top5[it / test_interval - 1] = top5_val
+
 
             ax1.plot(it_val_axes[0:it / test_interval], val_loss_C[0:it/ test_interval], 'y')
             ax2.plot(it_val_axes[0:it / test_interval], val_top1[0:it / test_interval], 'g')
+            ax2.plot(it_val_axes[0:it / test_interval], val_top5[0:it / test_interval], 'k')
+
 
             #ax1.set_ylim([0, 10])
             plt.title(training_id)

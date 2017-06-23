@@ -17,7 +17,7 @@ def preprocess(im):
 caffe.set_device(0)
 caffe.set_mode_gpu()
 
-split = 'test'
+split = 'val'
 
 test = np.loadtxt('../../../datasets/WebVision/info/'+split+'_filelist.txt', dtype=str)
 
@@ -26,7 +26,7 @@ model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_300000'
 
 #Ensemble 2 classifiers
 ensembleClassifiers = True
-model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_440000'
+model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_460k+40000'
 
 num_crops = 4
 
@@ -43,7 +43,7 @@ net = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebV
 if ensembleClassifiers: net2 = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model2 + '.caffemodel', caffe.TEST)
 
 # Reshape net
-batch_size = 150
+batch_size = 100
 size = 224
 net.blobs['data'].reshape(batch_size, 3, size, size)
 if ensembleClassifiers: net2.blobs['data'].reshape(batch_size, 3, size, size)

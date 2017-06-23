@@ -11,13 +11,13 @@ from caffe import layers as L
 split_train = '/info/val_filelist'
 split_val = '/info/val_filelist'
 num_labels = 1000
-batch_size = 10 #AlexNet 100, VGG 40
+batch_size = 100 #AlexNet 100, VGG 40
 resize = False #Resize the image to the given size before cropping
 resize_w = 256
 resize_h = 256
 crop_w = 224 #Train with a random crop of this size
 crop_h = 224 #227 AlexNet, 224 VGG16, Inception
-crop_margin = 0 #The crop won't include the margin in pixels
+crop_margin = 4 #The crop won't include the margin in pixels
 mirror = True #Mirror images with 50% prob
 rotate_prob = .2 #Rotation probability
 rotation_angle = 8 #15,8 #Rotate with angle between -a and a

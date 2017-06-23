@@ -224,8 +224,14 @@ class customDataLayer(caffe.Layer):
 
         #end = time.time()
         #print "Time data aumentation: " + str((end - start))
-
         in_ = np.array(im, dtype=np.float32)
+        if( in_.shape.__len__() < 3):
+            im_gray = im
+            im = Image.new("RGB", im_gray.size)
+            im.paste(im_gray)
+            in_ = np.array(im, dtype=np.float32)
+
+
         in_ = in_[:,:,::-1]
         in_ -= self.mean
         in_ = in_.transpose((2,0,1))
@@ -258,8 +264,8 @@ class customDataLayer(caffe.Layer):
         #im = im.convert('HSV')
         data = np.array(im)  # "data" is a height x width x 3 numpy array
         hsv_data = cv2.cvtColor(data, cv2.COLOR_RGB2HSV)
-        hsv_data[:, :, 1] = hsv_data[:, :, 1] #* random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
-        hsv_data[:, :, 2] = hsv_data[:, :, 2] #* random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
+        hsv_data[:, :, 1] = hsv_data[:, :, 1] * random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
+        hsv_data[:, :, 2] = hsv_data[:, :, 2] * random.uniform(1 - self.HSV_jitter, 1 + self.HSV_jitter)
         data = cv2.cvtColor(hsv_data, cv2.COLOR_HSV2RGB)
         im = Image.fromarray(data, 'RGB')
         #im = im.convert('RGB')
@@ -277,7 +283,7 @@ class customDataLayer(caffe.Layer):
             return im
         data = np.array(im)  # "data" is a height x width x 3 numpy array
         ch = random.randint(0, 2)
-        jitter = random.randint(0, int(1 / self.color_casting_jitter))
+        jitter = random.randint(0, self.color_casting_jitter)
         data[:, :, ch] = data[:, :, ch] + jitter
         im = Image.fromarray(data, 'RGB')
         return im
