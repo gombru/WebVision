@@ -3,18 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f553e799-7e6a-4909-b8d1-5ef39f37e388" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/WebVision_Inception_LDAfiltered_500_80000chunck360000.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/evaluation/getTOPN.py" afterPath="$PROJECT_DIR$/evaluation/getTOPN.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/create_DataLayer.py" afterPath="$PROJECT_DIR$/googlenet/create_DataLayer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" afterPath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/layers.py" afterPath="$PROJECT_DIR$/googlenet/layers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/train.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/train.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/train_frozen_softlabel.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/train_frozen_softlabel.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/val.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/val.prototxt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/val_frozen_softlabel.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/val_frozen_softlabel.prototxt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt" afterPath="$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/train.py" afterPath="$PROJECT_DIR$/googlenet/train.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/train_multiGPU.py" afterPath="$PROJECT_DIR$/googlenet/train_multiGPU.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,14 +24,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="layers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
+      <file leaf-file-name="train_multiGPU.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/googlenet/train_multiGPU.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="288" column="17" lean-forward="true" selection-start-line="288" selection-start-column="17" selection-end-line="288" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="234">
+              <caret line="16" column="63" lean-forward="true" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_probs_batch_multiple_crops.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -47,8 +47,18 @@
       <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/googlenet/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+            <state relative-caret-position="208">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="solver_multiGPU.prototxt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -57,28 +67,8 @@
       <file leaf-file-name="solver.prototxt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver.prototxt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="train.prototxt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="val.prototxt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/prototxt/val.prototxt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-42266">
-              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -165,8 +155,6 @@
         <option value="$PROJECT_DIR$/googlenet/prototxt/val_softlabel.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/train_lmdb.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet/train_multiGPU.py" />
         <option value="$PROJECT_DIR$/webvision-master/mymain.py" />
         <option value="$PROJECT_DIR$/webvision-master/config.py" />
         <option value="$PROJECT_DIR$/webvision-master/eval.py" />
@@ -175,13 +163,15 @@
         <option value="$PROJECT_DIR$/googlenet/prototxt/train_frozen_softlabel.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/val_frozen_softlabel.prototxt" />
         <option value="$PROJECT_DIR$/evaluation/getTOPN.py" />
-        <option value="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/val.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/create_DataLayer.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/train.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/layers.py" />
+        <option value="$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/train.py" />
+        <option value="$PROJECT_DIR$/googlenet/train_multiGPU.py" />
+        <option value="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" />
       </list>
     </option>
   </component>
@@ -300,7 +290,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.train">
+  <component name="RunManager" selected="Python.get_probs_batch_multiple_crops">
     <configuration default="false" name="getTOPN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -499,11 +489,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.train" />
-        <item index="1" class="java.lang.String" itemvalue="Python.layers" />
-        <item index="2" class="java.lang.String" itemvalue="Python.create_DataLayer" />
-        <item index="3" class="java.lang.String" itemvalue="Python.getTOPN" />
-        <item index="4" class="java.lang.String" itemvalue="Python.get_probs_batch_multiple_crops" />
+        <item index="0" class="java.lang.String" itemvalue="Python.get_probs_batch_multiple_crops" />
+        <item index="1" class="java.lang.String" itemvalue="Python.train" />
+        <item index="2" class="java.lang.String" itemvalue="Python.layers" />
+        <item index="3" class="java.lang.String" itemvalue="Python.create_DataLayer" />
+        <item index="4" class="java.lang.String" itemvalue="Python.getTOPN" />
       </list>
     </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -602,13 +592,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
+    <frame x="59" y="-4" width="1861" height="1084" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21322314" sideWeight="0.49127182" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25678498" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25678498" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -852,13 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train_lmdb.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-42436">
@@ -870,13 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-42382">
           <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/train_multiGPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -978,14 +954,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1020,26 +988,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/train.py">
+    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train.prototxt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+        <state relative-caret-position="720">
+          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver.prototxt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train.prototxt">
+    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+        <state relative-caret-position="126">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/train_multiGPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="16" column="63" lean-forward="true" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>

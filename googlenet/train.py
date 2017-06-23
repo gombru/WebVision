@@ -19,7 +19,7 @@ display_interval = 500 #500
 niter = 100011100
 
 #number of validating images  is  test_iters * batchSize
-test_interval = 200 #200
+test_interval = 2000 #200
 test_iters = 20 #20
 solver_filename = 'prototxt/solver.prototxt'
 solver = caffe.get_solver(solver_filename)

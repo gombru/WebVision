@@ -43,7 +43,7 @@ net = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebV
 if ensembleClassifiers: net2 = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model2 + '.caffemodel', caffe.TEST)
 
 # Reshape net
-batch_size = 100
+batch_size = 140
 size = 224
 net.blobs['data'].reshape(batch_size, 3, size, size)
 if ensembleClassifiers: net2.blobs['data'].reshape(batch_size, 3, size, size)
