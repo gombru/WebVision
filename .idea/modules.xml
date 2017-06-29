@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/WebVision.iml" filepath="$PROJECT_DIR$/.idea/WebVision.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../my_word2vec/.idea/my_word2vec.iml" filepath="$PROJECT_DIR$/../my_word2vec/.idea/my_word2vec.iml" />
     </modules>
   </component>
 </project>

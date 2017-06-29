@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$USER_HOME$/3rdprojects/word2vec_python" vcs="Git" />
+    <mapping directory="$USER_HOME$/3rdprojects/word2vec_python/word2vec" vcs="Git" />
   </component>
 </project>

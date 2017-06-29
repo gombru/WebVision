@@ -11,13 +11,13 @@ caffe.set_mode_gpu()
 test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
 
 #Model name
-model = 'WebVision_Inception_LDAscored_500_80000chunck_iter_300000'
+model = 'WebVision_Inception_LDASoftLabel_500_80000chunck_iter_72000'
 
 #Ensemble 2 classifiers
 ensembleClassifiers = False
 model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_440000'
 
-op = 'resize'
+op = 'crop'
 
 #Output file
 output_file_dir = '../../../datasets/WebVision/results/classification_' + op + '/' + model
@@ -36,11 +36,11 @@ size = 224
 
 # Images are 256*>256. The idea is to crop the 256x256 center and resize the square image to 224 to avoid distortion
 # That makes sense because we have trained the net with crops, avoiding image distortion.
-crop = False
+crop = True
 crop_size = 256
 
 # Reshape net
-batch_size = 150
+batch_size = 300
 net.blobs['data'].reshape(batch_size, 3, size, size)
 if ensembleClassifiers: net2.blobs['data'].reshape(batch_size, 3, size, size)
 
