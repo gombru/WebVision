@@ -17,7 +17,7 @@ def preprocess(im):
 caffe.set_device(0)
 caffe.set_mode_gpu()
 
-split = 'test'
+split = 'val'
 
 test = np.loadtxt('../../../datasets/WebVision/info/'+split+'_filelist.txt', dtype=str)
 

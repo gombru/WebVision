@@ -1,7 +1,7 @@
 import numpy as np
 
 
-model = 'final_ensemble'
+model = 'final_ensemble_2class_8crops'
 op = 'ensemble_crops_8'
 
 data = np.loadtxt('../../../datasets//WebVision/results/classification_'+op+'/'+model+'/val.txt', dtype=str)
