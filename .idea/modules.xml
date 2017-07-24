@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/.idea/SocialMediaWeakLabeling.iml" filepath="$PROJECT_DIR$/../SocialMediaWeakLabeling/.idea/SocialMediaWeakLabeling.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/WebVision.iml" filepath="$PROJECT_DIR$/.idea/WebVision.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dataAugmentationExperiments/.idea/dataAugmentationExperiments.iml" filepath="$PROJECT_DIR$/../dataAugmentationExperiments/.idea/dataAugmentationExperiments.iml" />
       <module fileurl="file://$PROJECT_DIR$/../my_word2vec/.idea/my_word2vec.iml" filepath="$PROJECT_DIR$/../my_word2vec/.idea/my_word2vec.iml" />
     </modules>
   </component>

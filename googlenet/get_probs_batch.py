@@ -11,7 +11,7 @@ caffe.set_mode_gpu()
 test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
 
 #Model name
-model = 'WebVision_Inception_LDASoftLabel_500_80000chunck_iter_72000'
+model = 'WebVision_Inception_finetune_withregressionhead025_iter_460k+40000'
 
 #Ensemble 2 classifiers
 ensembleClassifiers = False

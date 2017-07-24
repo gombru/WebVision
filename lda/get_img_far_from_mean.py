@@ -32,10 +32,11 @@ mean_class_distributions_path = '../../../datasets/WebVision/lda_gt/class_means_
 mean_class_distributions = np.loadtxt(mean_class_distributions_path)
 filtered = np.zeros([1000,1])
 
-distance_ths = [0.1,0.09,0.08,0.07,0.06,0.05,0.04,0.03,0.02,0.01,0.009,0.008,0.007,0.006,0.005,0.001]
+#distance_ths = [0.1,0.09,0.08,0.07,0.06,0.05,0.04,0.03,0.02,0.01,0.009,0.008,0.007,0.006,0.005,0.001]
+distance_ths = [0.02222]
 
 num_topics = 500
-threads = 12
+threads = 2
 
 words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube', 'images', 'blog', 'pinterest']
 
@@ -136,7 +137,7 @@ def infer_LDA(d):
 
 
 sources=['google','flickr']
-classes=[0,100,200,300,400,500,600,700,800,900]
+classes=[5,50,100,200,250,300,400,520,600,800]
 
 
 former_filename = ' '

@@ -2,16 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f553e799-7e6a-4909-b8d1-5ef39f37e388" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_model.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_retrieval.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/check_model.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/infer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/plot_all_acc.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/prototxt/deploy500.prototxt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/WebVision_Inception_LDAfiltered_500_80000chunck360000.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn_regression/get_regressions_batch.py" afterPath="$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn_regression/get_regressions_batch.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/retrieve_topN.py" afterPath="$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/retrieve_topN.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/text2topics.py" afterPath="$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/text2topics.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/WebVision.iml" afterPath="$PROJECT_DIR$/.idea/WebVision.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/evaluation/getTOPN.py" afterPath="$PROJECT_DIR$/evaluation/getTOPN.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/get_probs_batch.py" afterPath="$PROJECT_DIR$/googlenet/get_probs_batch.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" afterPath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/train_multiGPU.py" afterPath="$PROJECT_DIR$/googlenet/train_multiGPU.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py" afterPath="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlenet/layers.py" afterPath="$PROJECT_DIR$/googlenet/layers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lda/get_img_far_from_mean.py" afterPath="$PROJECT_DIR$/lda/get_img_far_from_mean.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lda/train_lda.py" afterPath="$PROJECT_DIR$/lda/train_lda.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dataAugmentationExperiments/create_solver.py" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/create_solver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dataAugmentationExperiments/do_solve.py" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/do_solve.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dataAugmentationExperiments/layers.py" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/layers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dataAugmentationExperiments/solver.prototxt" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/solver.prototxt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dataAugmentationExperiments/train.prototxt" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/train.prototxt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dataAugmentationExperiments/train.py" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/train.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../dataAugmentationExperiments/val.prototxt" afterPath="$PROJECT_DIR$/../dataAugmentationExperiments/val.prototxt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,43 +46,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="layers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
+      <file leaf-file-name="retrieve_topN.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/retrieve_topN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="263" column="20" lean-forward="false" selection-start-line="263" selection-start-column="20" selection-end-line="263" selection-end-column="20" />
+            <state relative-caret-position="126">
+              <caret line="121" column="16" lean-forward="true" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
               <folding>
-                <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#81#99#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SoftMaxSoftLabel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py">
+      <file leaf-file-name="text2topics.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/text2topics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="13" />
+            <state relative-caret-position="148">
+              <caret line="27" column="35" lean-forward="true" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+              <folding>
+                <element signature="e#135#176#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_doc2vec_instacities1m.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/get_doc2vec_instacities1m.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-270">
+              <caret line="48" column="47" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding>
+                <element signature="e#174#215#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check_retrieval.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_retrieval.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check_model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="73" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getTOPN.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evaluation/getTOPN.py">
+      <file leaf-file-name="do_solve.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/do_solve.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="676">
+              <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_probs_batch_multiple_crops_finalensemble.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py">
+      <file leaf-file-name="get_img_far_from_mean.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lda/get_img_far_from_mean.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="infer.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/infer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="10" column="92" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="92" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -73,22 +148,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_probs_batch.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch.py">
+      <file leaf-file-name="layers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/layers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="13" column="68" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_probs_batch_multiple_crops.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="136" column="31" lean-forward="false" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="159">
+              <caret line="215" column="44" lean-forward="true" selection-start-line="215" selection-start-column="44" selection-end-line="215" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,36 +171,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>data2</find>
+      <find>split</find>
+      <find>doc_id</find>
+      <find>000</find>
+      <find>id</find>
+      <find>steme</find>
+      <find>ste</find>
+      <find>infer_LDA</find>
       <find>data</find>
-      <find>net</find>
-      <find>indices</find>
-      <find>4</find>
-      <find>loss</find>
-      <find>loss2</find>
-      <find>10</find>
-      <find>loss1</find>
-      <find>val_top1</find>
-      <find>net2</find>
-      <find>im_o</find>
-      <find>test</find>
-      <find>val</find>
-      <find>test[</find>
-      <find>rotate</find>
-      <find>rotation_angle</find>
+      <find>shape</find>
+      <find>retr</find>
+      <find>vision</find>
+      <find>iter</find>
+      <find>doc</find>
+      <find>embedding</find>
+      <find>LDA</find>
+      <find>whitelist</find>
+      <find>text2topics</find>
+      <find>get_results_complex</find>
+      <find>cur_q</find>
+      <find>labels</find>
+      <find>load_im</find>
+      <find>_</find>
+      <find>self.label</find>
+      <find>weights</find>
       <find>self.random</find>
       <find>resize</find>
-      <find>loss_w</find>
-      <find>loss_we</find>
-      <find>split</find>
-      <find>train_top1</find>
-      <find>top1_val</find>
-      <find>snapshot</find>
-      <find>cross</find>
-      <find>crops.append</find>
-      <find>num_crops</find>
-      <find>mirror</find>
-      <find>probs2</find>
+      <find>always_center_crop</find>
+      <find>alw</find>
+      <find>distances</find>
+      <find>load_image</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,37 +209,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/webvision/config.py" />
-        <option value="$PROJECT_DIR$/lda/train_lda.py" />
-        <option value="$PROJECT_DIR$/lda/test_lda" />
-        <option value="$PROJECT_DIR$/lda/test_lda.py" />
-        <option value="$PROJECT_DIR$/lda/sss.py" />
-        <option value="$PROJECT_DIR$/lda/infer_lda.py" />
-        <option value="$PROJECT_DIR$/googlenet/prototxt/train_softLabel.prototxt" />
-        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn/create_net_AlexNet.py" />
-        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn/train.py" />
-        <option value="$PROJECT_DIR$/alexnet/solver.prototxt" />
-        <option value="$PROJECT_DIR$/alexnet/create_net_AlexNet.py" />
-        <option value="$PROJECT_DIR$/googlenet_regression/train_multiGPU.py" />
-        <option value="$PROJECT_DIR$/alexnet/val.prototxt" />
-        <option value="$PROJECT_DIR$/alexnet/train.py" />
-        <option value="$PROJECT_DIR$/alexnet/train.prototxt" />
-        <option value="$PROJECT_DIR$/alexnet/do_solve.py" />
-        <option value="$PROJECT_DIR$/alexnet/layers.py" />
-        <option value="$PROJECT_DIR$/googlenet/prototxt/train_frozen.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet/prototxt/val_frozen.prototxt" />
-        <option value="$PROJECT_DIR$/lda/infer_lda_filtering_outliers.py" />
-        <option value="$PROJECT_DIR$/googlenet_regression/prototxt/solver_multiGPU.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen_softlabel.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen_softlabel.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet_regression/prototxt/solver.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet_regression/train.py" />
-        <option value="$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet_regression/layers_2heads.py" />
-        <option value="$PROJECT_DIR$/googlenet/prototxt/train_softlabel.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet/prototxt/val_softlabel.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/train_lmdb.prototxt" />
         <option value="$PROJECT_DIR$/webvision-master/mymain.py" />
         <option value="$PROJECT_DIR$/webvision-master/config.py" />
@@ -184,22 +220,53 @@
         <option value="$PROJECT_DIR$/googlenet/prototxt/solver.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/create_DataLayer.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/train.prototxt" />
-        <option value="$PROJECT_DIR$/googlenet/layers.py" />
         <option value="$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt" />
         <option value="$PROJECT_DIR$/googlenet/train.py" />
         <option value="$PROJECT_DIR$/googlenet/train_multiGPU.py" />
         <option value="$PROJECT_DIR$/../my_word2vec/main.py" />
-        <option value="$PROJECT_DIR$/googlenet/get_probs_batch.py" />
         <option value="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" />
         <option value="$PROJECT_DIR$/evaluation/getTOPN.py" />
+        <option value="$PROJECT_DIR$/googlenet/get_probs_batch.py" />
         <option value="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/prototxt/data_layer.prototxt" />
+        <option value="$PROJECT_DIR$/googlenet/layers.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/prototxt/train_frozen_500.prototxt" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/prototxt/val_frozen_500.prototxt" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/create_DataLayer.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/train.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/lda/test_LDA.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/test_doc2vec.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/get_doc2vec.py" />
+        <option value="$PROJECT_DIR$/lda/train_lda.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/train.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/train_doc2vec.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/train_word2vec.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/get_doc2vec_webvision.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/layers.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/get_word2vec_webvision.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/get_word2vec_instacities1m.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/get_doc2vec_instacities1m.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn_regression/get_regressions_batch.py" />
+        <option value="$PROJECT_DIR$/../dataAugmentationExperiments/create_net.py" />
+        <option value="$PROJECT_DIR$/../dataAugmentationExperiments/do_solve.py" />
+        <option value="$PROJECT_DIR$/../dataAugmentationExperiments/plot_all_acc.py" />
+        <option value="$PROJECT_DIR$/../dataAugmentationExperiments/layers.py" />
+        <option value="$PROJECT_DIR$/../dataAugmentationExperiments/create_solver.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/check_model.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_model.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/retrieve_topN.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/text2topics.py" />
+        <option value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_retrieval.py" />
+        <option value="$PROJECT_DIR$/../dataAugmentationExperiments/infer.py" />
+        <option value="$PROJECT_DIR$/../dataAugmentationExperiments/train.py" />
+        <option value="$PROJECT_DIR$/lda/get_img_far_from_mean.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
+    <option name="x" value="59" />
     <option name="y" value="-4" />
-    <option name="width" value="1920" />
+    <option name="width" value="1861" />
     <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -218,6 +285,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -226,6 +294,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dataAugmentationExperiments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebVision" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="WebVision" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -240,45 +318,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="googlenet_regression" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebVision" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebVision" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="googlenet" />
+              <option name="myItemId" value="lda" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../my_word2vec" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dataAugmentationExperiments" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/alexnet" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../dataAugmentationExperiments" />
+      <recent name="$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec" />
+      <recent name="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec" />
       <recent name="$PROJECT_DIR$/googlenet" />
       <recent name="$PROJECT_DIR$/webvision-master" />
-      <recent name="$PROJECT_DIR$/googlenet/prototxt" />
-      <recent name="$PROJECT_DIR$/googlenet_regression" />
-      <recent name="$PROJECT_DIR$/googlenet_regression/prototxt" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/alexnet" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -293,92 +356,92 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.get_probs_batch_multiple_crops_finalensemble">
-    <configuration default="false" name="getTOPN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.get_img_far_from_mean">
+    <configuration default="false" name="retrieve_topN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/evaluation" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="WebVision" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/evaluation/getTOPN.py" />
+      <module name="SocialMediaWeakLabeling" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/retrieve_topN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="get_probs_batch_multiple_crops" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="check_retrieval" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/googlenet" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="WebVision" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py" />
+      <module name="SocialMediaWeakLabeling" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_retrieval.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="get_probs_batch" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="infer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/googlenet" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../dataAugmentationExperiments" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="WebVision" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/googlenet/get_probs_batch.py" />
+      <module name="dataAugmentationExperiments" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../dataAugmentationExperiments/infer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../my_word2vec" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../dataAugmentationExperiments" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="my_word2vec" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../my_word2vec/main.py" />
+      <module name="dataAugmentationExperiments" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../dataAugmentationExperiments/train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="get_probs_batch_multiple_crops_finalensemble" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="get_img_far_from_mean" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/googlenet" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lda" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="WebVision" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lda/get_img_far_from_mean.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -484,19 +547,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.getTOPN" />
-      <item index="1" class="java.lang.String" itemvalue="Python.get_probs_batch_multiple_crops" />
-      <item index="2" class="java.lang.String" itemvalue="Python.get_probs_batch" />
-      <item index="3" class="java.lang.String" itemvalue="Python.main" />
-      <item index="4" class="java.lang.String" itemvalue="Python.get_probs_batch_multiple_crops_finalensemble" />
+      <item index="0" class="java.lang.String" itemvalue="Python.retrieve_topN" />
+      <item index="1" class="java.lang.String" itemvalue="Python.check_retrieval" />
+      <item index="2" class="java.lang.String" itemvalue="Python.infer" />
+      <item index="3" class="java.lang.String" itemvalue="Python.train" />
+      <item index="4" class="java.lang.String" itemvalue="Python.get_img_far_from_mean" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.get_probs_batch_multiple_crops_finalensemble" />
-        <item index="1" class="java.lang.String" itemvalue="Python.getTOPN" />
-        <item index="2" class="java.lang.String" itemvalue="Python.get_probs_batch_multiple_crops" />
-        <item index="3" class="java.lang.String" itemvalue="Python.get_probs_batch" />
-        <item index="4" class="java.lang.String" itemvalue="Python.main" />
+        <item index="0" class="java.lang.String" itemvalue="Python.get_img_far_from_mean" />
+        <item index="1" class="java.lang.String" itemvalue="Python.train" />
+        <item index="2" class="java.lang.String" itemvalue="Python.infer" />
+        <item index="3" class="java.lang.String" itemvalue="Python.check_retrieval" />
+        <item index="4" class="java.lang.String" itemvalue="Python.retrieve_topN" />
       </list>
     </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -568,7 +631,42 @@
       <option name="project" value="LOCAL" />
       <updated>1497456468954</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="train_word2vec">
+      <created>1499774611847</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1499774611847</updated>
+    </task>
+    <task id="LOCAL-00007" summary="train_word2vec">
+      <created>1499775518935</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1499775518935</updated>
+    </task>
+    <task id="LOCAL-00008" summary="word2vec inferring">
+      <created>1499846028977</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1499846028977</updated>
+    </task>
+    <task id="LOCAL-00009" summary="word2vec inferring">
+      <created>1499846168149</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1499846168149</updated>
+    </task>
+    <task id="LOCAL-00010" summary="word2vec inferring">
+      <created>1499846445139</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1499846445139</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -584,6 +682,18 @@
     <history-entry file="Nosetests_in_test_lda - 2017.05.26 at 11h 23m 59s.xml">
       <configuration name="Nosetests in test_lda" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_test_LDA_py - 2017.07.17 at 13h 24m 47s.xml">
+      <configuration name="Unittests in test_LDA.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_LDA_py - 2017.07.17 at 13h 28m 16s.xml">
+      <configuration name="Unittests in test_LDA.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_LDA_py - 2017.07.17 at 13h 33m 28s.xml">
+      <configuration name="Unittests in test_LDA.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_doc2vec_py - 2017.07.05 at 14h 24m 24s.xml">
+      <configuration name="Unittests in test_doc2vec.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -595,18 +705,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19743863" sideWeight="0.49127182" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20661157" sideWeight="0.49127182" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37891442" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47181627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35386223" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36325678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21920668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18226333" sideWeight="0.5087282" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -632,19 +742,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Lets see" />
     <MESSAGE value="Get rpobs with batch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get rpobs with batch" />
+    <MESSAGE value="train_word2vec" />
+    <MESSAGE value="word2vec inferring" />
+    <option name="LAST_COMMIT_MESSAGE" value="word2vec inferring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lda/train_lda.py</url>
-          <line>131</line>
+          <line>133</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/lda/train_lda.py</url>
-          <line>135</line>
+          <line>137</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -699,380 +811,481 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py</url>
-          <line>39</line>
+          <line>41</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py</url>
-          <line>145</line>
+          <line>147</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py</url>
-          <line>143</line>
+          <line>145</line>
           <option name="timeStamp" value="103" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lda/train_lda.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn_regression/get_regressions_batch.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/get_doc2vec_instacities1m.py</url>
+          <line>106</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/retrieve_topN.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/text2topics.py</url>
+          <line>85</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/lda/test_LDA.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/lda/test_LDA.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/lda/test_LDA.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_model.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_retrieval.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_retrieval.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="160" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../dataAugmentationExperiments/layers.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="104" />
+      <option name="time" value="167" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lda/infer_lda_filtering_outliers.py">
+    <entry file="file://$PROJECT_DIR$/googlenet_regression/layers_2heads.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="144" column="59" lean-forward="false" selection-start-line="144" selection-start-column="59" selection-end-line="144" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lmdb/create_WebVision_LMDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/layers.py" />
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/SoftMaxSoftLabel.py" />
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen_softlabel.prototxt" />
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen_softlabel.prototxt" />
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/create_DataLayer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/solver_multiGPU.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/val.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/train_multiGPU.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="164" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state relative-caret-position="128">
+          <caret line="77" column="8" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/train_frozen.prototxt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/solver.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/val_frozen.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38574">
-          <caret line="2143" column="19" lean-forward="true" selection-start-line="2143" selection-start-column="19" selection-end-line="2143" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/layers_2heads.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="209" column="18" lean-forward="false" selection-start-line="209" selection-start-column="16" selection-end-line="209" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/val_softlabel.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42434">
-          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train_lmdb.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42436">
-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/val_lmdb.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42382">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webvision-master/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="63" lean-forward="false" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webvision-master/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="9" column="45" lean-forward="false" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webvision-master/eval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webvision-master/val.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webvision-master/mymain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/deploy.prototxt">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn/layers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/dist-packages/PIL/Image.py">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn_regression/solver.prototxt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13266">
-          <caret line="741" column="0" lean-forward="false" selection-start-line="741" selection-start-column="0" selection-end-line="741" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/get_regressions_batch.py">
+    <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="81" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="81" />
-          <folding />
+        <state relative-caret-position="126">
+          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train_softlabel.prototxt">
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/smart_open/smart_open_lib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14292">
-          <caret line="794" column="14" lean-forward="false" selection-start-line="794" selection-start-column="9" selection-end-line="794" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="392">
+          <caret line="622" column="31" lean-forward="true" selection-start-line="622" selection-start-column="31" selection-end-line="622" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/val_frozen_softlabel.prototxt">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/prototxt/data_layer.prototxt" />
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/prototxt/train_frozen_500.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train_frozen_softlabel.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="2122" column="1" lean-forward="true" selection-start-line="2122" selection-start-column="1" selection-end-line="2123" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/data_layer.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/create_DataLayer.py">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/prototxt/val_frozen_500.prototxt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="23" column="79" lean-forward="true" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
-          <folding />
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/val.prototxt">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/create_DataLayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42266">
-          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="331">
+          <caret line="45" column="42" lean-forward="true" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/train.prototxt">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+        <state relative-caret-position="378">
+          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lda/train_lda.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="16" column="105" lean-forward="false" selection-start-line="16" selection-start-column="105" selection-end-line="16" selection-end-column="105" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver.prototxt">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/test_regression.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/prototxt/solver_multiGPU.prototxt">
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/joblib/parallel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/train_doc2vec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/solver.prototxt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/get_word2vec_webvision.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="72" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/get_word2vec_instacities1m.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="90" column="30" lean-forward="false" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn_regression/get_regressions_batch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn_regression/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/create_DataLayer.py" />
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/create_solver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="45" column="54" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/do_solve.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="71" column="12" lean-forward="false" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/googlenet_regression/layers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/train.py">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/get_doc2vec_webvision.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="82" />
+        <state relative-caret-position="1998">
+          <caret line="122" column="57" lean-forward="false" selection-start-line="122" selection-start-column="53" selection-end-line="122" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/train_multiGPU.py">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/lda/train_LDA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="187" column="9" lean-forward="false" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="9" />
+        <state relative-caret-position="1908">
+          <caret line="113" column="27" lean-forward="false" selection-start-line="113" selection-start-column="27" selection-end-line="113" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/3rdprojects/word2vec_python/word2vec/versioneer.py">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/lda/test_LDA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1782">
+          <caret line="107" column="18" lean-forward="false" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/3rdprojects/word2vec_python/word2vec/setup.py">
+    <entry file="file://$PROJECT_DIR$/lda/infer_lda.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="666">
+          <caret line="46" column="67" lean-forward="false" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/3rdprojects/word2vec_python/setup.cfg">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn/create_VGG16Net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="882">
+          <caret line="63" column="46" lean-forward="true" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/3rdprojects/word2vec_python/setup.py">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/cnn/infer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="-234">
+          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#10#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../my_word2vec/main.py">
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/create_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="54" column="33" lean-forward="true" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="13" column="68" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet_regression/prototxt/train.prototxt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17802">
-          <caret line="989" column="32" lean-forward="false" selection-start-line="989" selection-start-column="9" selection-end-line="989" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="232">
+          <caret line="60" column="7" lean-forward="false" selection-start-line="60" selection-start-column="7" selection-end-line="60" selection-end-column="23" />
+          <folding>
+            <element signature="e#30#42#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="136" column="31" lean-forward="false" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
+        <state relative-caret-position="270">
+          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/solver.prototxt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/create_solver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/train_word2vec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="104" column="23" lean-forward="false" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
+        <state relative-caret-position="171">
           <caret line="1014" column="0" lean-forward="false" selection-start-line="1014" selection-start-column="0" selection-end-line="1014" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/SoftMaxSoftLabel.py">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/word2vec/check_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="13" />
+        <state relative-caret-position="144">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="16" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/layers.py">
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/load_regressions_from_txt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="263" column="20" lean-forward="false" selection-start-line="263" selection-start-column="20" selection-end-line="263" selection-end-column="20" />
+        <state relative-caret-position="324">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/text2topics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="27" column="35" lean-forward="true" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding>
+            <element signature="e#135#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/retrieval/retrieve_topN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="121" column="16" lean-forward="true" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
+          <folding>
+            <element signature="e#81#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/IPython/core/interactiveshell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="2819" column="0" lean-forward="false" selection-start-line="2819" selection-start-column="0" selection-end-line="2819" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/get_doc2vec_instacities1m.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="48" column="47" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#174#215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="73" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/plot_all_acc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../SocialMediaWeakLabeling/paragraph2vec/check_retrieval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/layers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="215" column="44" lean-forward="true" selection-start-line="215" selection-start-column="44" selection-end-line="215" selection-end-column="44" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluation/getTOPN.py">
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/infer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="126">
+          <caret line="10" column="92" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/do_solve.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googlenet/get_probs_batch_multiple_crops_finalensemble.py">
+    <entry file="file://$PROJECT_DIR$/../dataAugmentationExperiments/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="145">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lda/get_img_far_from_mean.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

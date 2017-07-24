@@ -4,5 +4,6 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$USER_HOME$/3rdprojects/word2vec_python" vcs="Git" />
     <mapping directory="$USER_HOME$/3rdprojects/word2vec_python/word2vec" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../SocialMediaWeakLabeling" vcs="Git" />
   </component>
 </project>

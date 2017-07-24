@@ -1,4 +1,4 @@
-# Trains and saves an LDA model with the given text files.
+ # Trains and saves an LDA model with the given text files.
 
 from nltk.tokenize import RegexpTokenizer
 from stop_words import get_stop_words
@@ -13,10 +13,10 @@ import numpy as np
 
 whitelist = string.letters  + ' ' # + string.digits
 text_data_path = '../../../datasets/WebVision/'
-model_path = '../../../datasets/WebVision/models/LDA/lda_model_500_30000chunck.model'
-words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube']
+model_path = '../../../datasets/WebVision/models/LDA/lda_model_200_30000chunck.model'
+words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube',]
 
-num_topics = 500
+num_topics = 200
 threads = 8
 passes = 1 #Passes over the whole corpus
 chunksize = 80000 #Update the model every 10000 documents
@@ -46,6 +46,8 @@ file = open(text_data_path + 'info/train_meta_list_all.txt', "r")
 for line in file:
 
     filename = line.split(' ')[0]
+    filename.replace('google','google_json')
+    filename.replace('flickr','flickr_json')
     idx = int(line.split(' ')[1])
 
     if filename != former_filename:

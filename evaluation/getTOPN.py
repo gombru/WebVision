@@ -1,8 +1,8 @@
 import numpy as np
 
 
-model = 'final_ensemble_2class_8crops'
-op = 'ensemble_crops_8'
+model = 'WebVision_Inception_LDAfiltered_500_80000chunck_dataAugmentation__iter_50000'
+op = 'crop'
 
 data = np.loadtxt('../../../datasets//WebVision/results/classification_'+op+'/'+model+'/val.txt', dtype=str)
 test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
