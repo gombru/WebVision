@@ -1,6 +1,6 @@
 import caffe
 
-import numpy as nppython
+import numpy as np
 from PIL import Image
 from PIL import ImageOps
 import time
