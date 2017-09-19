@@ -6,7 +6,7 @@ import time
 from pylab import zeros, arange, subplots, plt, savefig
 
 
-caffe.set_device(0)
+caffe.set_device(2)
 caffe.set_mode_gpu()
 
 training_id = 'WebVision_resnet152-v2' # name to save the training plots
