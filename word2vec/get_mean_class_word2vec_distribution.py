@@ -98,13 +98,9 @@ def infer_word2vec(d):
             embedding = embedding / max(embedding)
 
         if np.isnan(embedding).any():
-            print "Wrong embedding"
             return
-        print caption
 
         if sum(embedding) < 0.00000001:
-            print "0 embedding"
-            print caption
             return
 
         out = ""
