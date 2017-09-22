@@ -100,12 +100,11 @@ def infer_word2vec(d):
         if np.isnan(embedding).any():
             print "Wrong embedding"
             return
+        print caption
 
         if sum(embedding) < 0.00000001:
             print "0 embedding"
-            print embedding
             print caption
-            input("Press Enter to continue...")
             return
 
         out = ""
