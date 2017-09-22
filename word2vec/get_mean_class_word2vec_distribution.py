@@ -32,6 +32,8 @@ threads = 12
 
 words2filter = ['wikipedia','google', 'flickr', 'figure', 'photo', 'image', 'homepage', 'url', 'youtube', 'images', 'blog', 'pinterest']
 
+null_embeddings = 0
+
 # create English stop words list
 en_stop = get_stop_words('en')
 
@@ -99,10 +101,12 @@ def infer_word2vec(d):
 
         if np.isnan(embedding).any():
             print "Wrong embedding"
+            null_embeddings +=1
             return
         if sum(embedding) < 0.00000001:
-            print sum(embedding)
+            print null_embeddings
             print "0 embedding"
+            null_embeddings +=1
             return
 
         out = ""
@@ -162,6 +166,8 @@ for s in sources:
 
 
     print "Resulting number of elements for " + s + ": " + str(len(strings))
+
+    print "NUll embeddings: " + str(null_embeddings)
 
     print "Saving results"
     for s in strings:
