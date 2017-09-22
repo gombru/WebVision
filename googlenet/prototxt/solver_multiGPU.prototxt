@@ -5,11 +5,12 @@ test_interval: 10000000
 display: 500
 average_loss: 1000
 base_lr: 0.003
+base_lr: 0.003
 lr_policy: "poly"
 power: 0.5
 max_iter: 2400000
 momentum: 0.9
 weight_decay: 0.0002
-snapshot: 10000
-snapshot_prefix: "../../../datasets/WebVision/models/CNN/WebVision_Inception_LDASoftLabel_500_80000chunck"
+snapshot: 50000
+snapshot_prefix: "../../../datasets/WebVision/models/CNN/WebVision_Inception"
 solver_mode: GPU
