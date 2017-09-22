@@ -70,7 +70,7 @@ def infer_word2vec(d):
         stopped_tokens = [i for i in tokens if not i in en_stop]
         tokens_filtered = [token for token in stopped_tokens if token in model.wv.vocab]
 
-        embedding = np.zeros(size)
+        embedding = np.zeros(num_topics)
 
         if not tfidf_weighted:
             c = 0
