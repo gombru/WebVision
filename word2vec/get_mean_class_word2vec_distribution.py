@@ -99,6 +99,7 @@ def infer_word2vec(d):
             print "Wrong embedding"
             return
         if sum(embedding) < 0.00001:
+            print sum(embedding)
             print "0 embedding"
             return
 
