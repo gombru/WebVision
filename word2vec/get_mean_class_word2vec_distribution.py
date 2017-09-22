@@ -97,6 +97,7 @@ def infer_word2vec(d):
 
         embedding = embedding / sum(embedding)
 
+        out = ""
         for e in embedding:
             out = out + ',' + str(e)
 
