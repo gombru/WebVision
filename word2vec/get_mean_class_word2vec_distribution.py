@@ -95,6 +95,10 @@ def infer_word2vec(d):
         # if max(embedding) > 0:
         #     embedding = embedding / max(embedding)
 
+        if np.isnan(embedding):
+            print "Wrong embedding"
+            return
+
         embedding = embedding / sum(embedding)
 
         out = ""
