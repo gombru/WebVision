@@ -98,6 +98,9 @@ def infer_word2vec(d):
         if np.isnan(embedding).any():
             print "Wrong embedding"
             return
+        if sum(embedgin) < 0.00001:
+            print "0 embedding"
+            return
 
         embedding = embedding / sum(embedding)
 
