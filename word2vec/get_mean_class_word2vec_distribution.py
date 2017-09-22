@@ -103,6 +103,9 @@ def infer_word2vec(d):
 
         if sum(embedding) < 0.00000001:
             print "0 embedding"
+            print embedding
+            print caption
+            input("Press Enter to continue...")
             return
 
         out = ""
