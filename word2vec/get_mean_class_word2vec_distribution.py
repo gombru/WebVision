@@ -103,6 +103,7 @@ def infer_word2vec(d):
             print "Wrong embedding"
             null_embeddings +=1
             return
+
         if sum(embedding) < 0.00000001:
             print null_embeddings
             print "0 embedding"
