@@ -91,19 +91,19 @@ def infer_word2vec(d):
                 word_embedding = model[tfidf_dictionary[tok[0]]]
                 embedding += word_embedding * tok[1]
 
-        # embedding = embedding - min(embedding)
-        # if max(embedding) > 0:
-        #     embedding = embedding / max(embedding)
+        if len(vec_tfidf) > 0:
+            embedding /= len(vec_tfidf)
+        embedding = embedding - min(embedding)
+        if max(embedding) > 0:
+            embedding = embedding / max(embedding)
 
         if np.isnan(embedding).any():
             print "Wrong embedding"
             return
-        if sum(embedding) < 0.00001:
+        if sum(embedding) < 0.00000001:
             print sum(embedding)
             print "0 embedding"
             return
-
-        embedding = embedding / sum(embedding)
 
         out = ""
         for e in embedding:
