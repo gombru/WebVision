@@ -31,7 +31,7 @@ output_file = open(output_file_path, "w")
 net = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model + '.caffemodel', caffe.TEST)
 if ensembleClassifiers: net2 = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model2 + '.caffemodel', caffe.TEST)
 
-resize = False
+resize = True
 size = 224
 
 # Images are 256*>256. The idea is to crop the 256x256 center and resize the square image to 224 to avoid distortion
