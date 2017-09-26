@@ -8,14 +8,14 @@ import os
 caffe.set_device(0)
 caffe.set_mode_gpu()
 
-test = np.loadtxt('../../../datasets/WebVision/info/val_filelist.txt', dtype=str)
+test = np.loadtxt('../../../datasets/WebVision/info/train_filelist_all.txt', dtype=str)
 
 #Model name
-model = 'WebVision_Inception_finetune_withregressionhead025_iter_460k+40000'
+model = 'WebVision_Inception_iter_120000'
 
 #Ensemble 2 classifiers
 ensembleClassifiers = False
-model2 = 'WebVision_Inception_finetune_withregressionhead025_iter_440000'
+model2 = 'WebVision_Inception_iter_120000'
 
 op = 'crop'
 
@@ -31,7 +31,7 @@ output_file = open(output_file_path, "w")
 net = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model + '.caffemodel', caffe.TEST)
 if ensembleClassifiers: net2 = caffe.Net('../googlenet/prototxt/deploy.prototxt', '../../../datasets/WebVision/models/saved/'+ model2 + '.caffemodel', caffe.TEST)
 
-resize = True
+resize = False
 size = 224
 
 # Images are 256*>256. The idea is to crop the 256x256 center and resize the square image to 224 to avoid distortion
@@ -60,7 +60,7 @@ while i < len(test):
         if i > len(test) - 1: break
 
         # load image
-        filename = '../../../datasets/WebVision/val_images_256/' + test[i][0]
+        filename = '../../../datasets/WebVision/' + test[i][0]
         im = Image.open(filename)
         im_o = im
 
