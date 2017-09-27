@@ -231,8 +231,8 @@ for i in xrange(1000):
     samples_to_discard = num_x_class[i] * float(percent_samples_2_discard)/100
 
     if i in classes:
-        if not os.path.exists('../../../datasets/WebVision/far_from_mean/' + str(el[1])):
-            os.makedirs('../../../datasets/WebVision/far_from_mean/' + str(el[1]))
+        if not os.path.exists('../../../datasets/WebVision/far_from_mean/' + str(i)):
+            os.makedirs('../../../datasets/WebVision/far_from_mean/' + str(i))
 
     results[i] = sorted(results[i], key=lambda x:x[1])
     for el in results[i]:
@@ -242,7 +242,7 @@ for i in xrange(1000):
             results[i].remove(el)
             filtered[i] += 1
             if i in classes:
-                copyfile('../../../datasets/WebVision/' + el[0], '../../../datasets/WebVision/far_from_mean/' + str(el[1]) + '/' + el[0].split('/')[-1])
+                copyfile('../../../datasets/WebVision/' + el[0], '../../../datasets/WebVision/far_from_mean/' + str(i) + '/' + el[0].split('/')[-1])
 
         if filtered[i] > samples_to_discard:
             break
