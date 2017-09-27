@@ -166,7 +166,7 @@ for s in sources:
 
     for i,line in enumerate(data_file):
 
-        #if i == 5: break
+        if i == 5: break
         filename = line.split(' ')[0].replace(s,s+'_json')
         idx = int(line.split(' ')[1])
 
@@ -186,15 +186,17 @@ for s in sources:
 
         data.append([img_names[i], img_classes[i], caption])
 
-
+    img_names = []
+    img_classes = []
     print "Number of elements for " + s + ": " + str(len(data))
     parallelizer = Parallel(n_jobs=threads)
     print "Infering word2vec scores"
     tasks_iterator = (delayed(infer_word2vec)(d) for d in data)
+    data = []
     r = parallelizer(tasks_iterator)
     # merging the output of the jobs
     strings = np.vstack(r)
-
+    results
 
     print "Resulting number of elements for " + s + ": " + str(len(strings))
 
@@ -209,12 +211,15 @@ for s in sources:
         except:
             print "Error with sample " + str(s[0])
 
+r = 0
+strings = 0
+
 num_x_class = np.zeros([1000,1])
 for i in xrange(1000):
     num_x_class[i] = len(results[i])
 
 # Classes to save discarded images
-classes=[5,50,100,200,250,300,400,520,600,800]
+classes=[0,5,50,100,200,250,300,400,520,600,800]
 
 # Sort lists by score in ascendent order, so by ditance to mean class and discard outliers
 for i in xrange(1000):
@@ -235,8 +240,9 @@ for i in xrange(1000):
             os.makedirs('../../../datasets/WebVision/far_from_mean/' + str(i))
 
     results[i] = sorted(results[i], key=lambda x:x[1])
+    print results[i]
     for el in results[i]:
-        if i in top5s[el[0]]:
+        if str(i) in top5s[el[0]]:
             continue
         else:
             results[i].remove(el)
